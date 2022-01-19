@@ -1,6 +1,9 @@
+# sudo pip3 install sensor
+
 from sensor.SHT20 import SHT20
 import sys
 import json
+
 # I2C bus=1, Address=0x40
 sht = SHT20(1, 0x40)
 

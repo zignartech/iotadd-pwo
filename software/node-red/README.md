@@ -23,6 +23,12 @@ To disable the service, run the command:
 sudo systemctl disable nodered.service
 ```
 
+#### For the project we recommend running the following command in the console
+
+```
+sudo systemctl enable nodered.service
+```
+
 ## Opening the editor
 
 Once Node-RED is running you can access the editor in a browser.
@@ -74,7 +80,7 @@ Perform below listed steps to search and add a node to your node-RED instance.
 
 Flows can be imported and exported from the editor using their JSON format, making it very easy to share flows with others.
 
-#### Importing flows
+#### Importing required flows
 
 The Import dialog can be used to import a flow by the following methods:
 
