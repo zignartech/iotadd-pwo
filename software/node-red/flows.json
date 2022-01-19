@@ -1,0 +1,345 @@
+[
+    {
+        "id": "cf029201dc01b7cc",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7fd8de0767b7e3f4",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.8-flux",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "6fb44f61a408e85c",
+        "type": "inject",
+        "z": "cf029201dc01b7cc",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "R",
+        "payloadType": "str",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "d719b174c10417f3",
+                "a752cb1170133474",
+                "ff923f014831988a",
+                "68807e3f4685d640",
+                "464d97d93fd21f27"
+            ]
+        ]
+    },
+    {
+        "id": "b99ffb0dcf83e3a4",
+        "type": "debug",
+        "z": "cf029201dc01b7cc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d719b174c10417f3",
+        "type": "ezo",
+        "z": "cf029201dc01b7cc",
+        "name": "pH",
+        "address": 3,
+        "customAddr": false,
+        "ezoBoard": "ph",
+        "ezoTopic": "payload",
+        "bus": 1,
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "52cf00e7e52aaea7"
+            ]
+        ]
+    },
+    {
+        "id": "464d97d93fd21f27",
+        "type": "exec",
+        "z": "cf029201dc01b7cc",
+        "command": "python3 sensors/sht21.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "b388e9b27fe0fd08"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b388e9b27fe0fd08",
+        "type": "function",
+        "z": "cf029201dc01b7cc",
+        "name": "",
+        "func": "const payload = JSON.parse(msg.payload);\n\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 480,
+        "wires": [
+            [
+                "baa992846d2a1420"
+            ]
+        ]
+    },
+    {
+        "id": "52cf00e7e52aaea7",
+        "type": "function",
+        "z": "cf029201dc01b7cc",
+        "name": "",
+        "func": "const payload = {\"pH\": msg.payload};\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "b99ffb0dcf83e3a4",
+                "baa992846d2a1420"
+            ]
+        ]
+    },
+    {
+        "id": "a752cb1170133474",
+        "type": "ezo",
+        "z": "cf029201dc01b7cc",
+        "name": "DO",
+        "address": 3,
+        "customAddr": false,
+        "ezoBoard": "do",
+        "ezoTopic": "payload",
+        "bus": 1,
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "379cc20e12725340"
+            ]
+        ]
+    },
+    {
+        "id": "379cc20e12725340",
+        "type": "function",
+        "z": "cf029201dc01b7cc",
+        "name": "",
+        "func": "const payload = {\"DO\": msg.payload};\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 240,
+        "wires": [
+            [
+                "baa992846d2a1420"
+            ]
+        ]
+    },
+    {
+        "id": "ff923f014831988a",
+        "type": "ezo",
+        "z": "cf029201dc01b7cc",
+        "name": "EC",
+        "address": 3,
+        "customAddr": false,
+        "ezoBoard": "ec",
+        "ezoTopic": "payload",
+        "bus": 1,
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "5905d874f8199e36"
+            ]
+        ]
+    },
+    {
+        "id": "5905d874f8199e36",
+        "type": "function",
+        "z": "cf029201dc01b7cc",
+        "name": "",
+        "func": "const payload = {\"EC\": msg.payload};\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "baa992846d2a1420"
+            ]
+        ]
+    },
+    {
+        "id": "68807e3f4685d640",
+        "type": "ezo",
+        "z": "cf029201dc01b7cc",
+        "name": "RTD",
+        "address": 3,
+        "customAddr": false,
+        "ezoBoard": "rtd",
+        "ezoTopic": "payload",
+        "bus": 1,
+        "x": 300,
+        "y": 400,
+        "wires": [
+            [
+                "f550e4ab9524113b"
+            ]
+        ]
+    },
+    {
+        "id": "f550e4ab9524113b",
+        "type": "function",
+        "z": "cf029201dc01b7cc",
+        "name": "",
+        "func": "const payload = {\"RTD\": msg.payload};\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 400,
+        "wires": [
+            [
+                "baa992846d2a1420"
+            ]
+        ]
+    },
+    {
+        "id": "baa992846d2a1420",
+        "type": "influxdb out",
+        "z": "cf029201dc01b7cc",
+        "influxdb": "7fd8de0767b7e3f4",
+        "name": "",
+        "measurement": "data_pwo",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "devices",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 860,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "04468a6410327944",
+        "type": "debug",
+        "z": "cf029201dc01b7cc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "526ff7204c0fc3ba",
+        "type": "http in",
+        "z": "cf029201dc01b7cc",
+        "name": "",
+        "url": "/sensor",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 250,
+        "y": 640,
+        "wires": [
+            [
+                "04468a6410327944",
+                "943569e7436446c7",
+                "3a365d897f8d8870"
+            ]
+        ]
+    },
+    {
+        "id": "943569e7436446c7",
+        "type": "http response",
+        "z": "cf029201dc01b7cc",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 250,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "3a365d897f8d8870",
+        "type": "function",
+        "z": "cf029201dc01b7cc",
+        "name": "",
+        "func": "const payload = {\"Liters\": JSON.parse(msg.payload).Liters};\nreturn {\n    payload\n};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 700,
+        "wires": [
+            [
+                "04468a6410327944",
+                "baa992846d2a1420"
+            ]
+        ]
+    }
+]
