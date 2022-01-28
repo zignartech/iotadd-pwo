@@ -33,9 +33,6 @@ exit the console and re-enter or logout
 ```
 docker ps
 ```
-We get the following at the command prompt
-
-![](./docker-ps.png)
 
 ## Install Docker Compose
 

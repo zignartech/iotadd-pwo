@@ -87,6 +87,8 @@ h, t = sht.all()  # read both at once
 ## Getting data in Node-RED
 
 Open a terminal and locate the directory where the `sht21.py` file.
+Use the `cd` command to move between directories and the `ls` command to display the content in each directory
+
 
 ![](./locate_sht21.png)
 
