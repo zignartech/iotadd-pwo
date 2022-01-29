@@ -7,5 +7,5 @@ pub struct CreateAuthorQuery {
 
 #[derive(Debug, Clone, Serialize, Deserialize, Validate)]
 pub struct CreateAuthorBody {
-  pub seed: String,
+  pub seed: Option<String>,
 }

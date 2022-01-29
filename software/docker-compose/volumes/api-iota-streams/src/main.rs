@@ -8,6 +8,7 @@ mod streams_utils;
 use crate::app_controller::createAuthor;
 use crate::app_controller::addressSendOne;
 use crate::app_controller::addressFetchAll;
+use crate::app_controller::createSubscriber;
 use actix_cors::Cors;
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -21,6 +22,7 @@ async fn main() -> std::io::Result<()> {
       .wrap(Cors::permissive())
        .service(createAuthor)
        .service(addressSendOne)
+       .service(createSubscriber)
        .service(addressFetchAll)
   })
   .bind("0.0.0.0:3030")?

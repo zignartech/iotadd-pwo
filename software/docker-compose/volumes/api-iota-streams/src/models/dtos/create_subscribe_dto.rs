@@ -6,7 +6,7 @@ use validator::Validate;
 pub struct CreateSubscriberQuery {
   #[serde(deserialize_with = "deserializeJsonString")]
   pub address: Address,
-  pub sendingSeed: bool,
+  // pub sendingSeed: bool,
 //   #[serde(deserialize_with = "deserializeJsonString")]
 //   pub author: Author,
 //   pub seed: String,
