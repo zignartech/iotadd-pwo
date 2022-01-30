@@ -171,5 +171,7 @@ pub async fn addressFetchAll(query: Query<FetchAll>) -> HttpResponse {
     println!("password: {}", subscriptor.password.clone());
     println!("state: {}", encodedExported);
 
-    HttpResponse::Ok().json(my_vec)
+    HttpResponse::Ok().json(json!({
+        "data": my_vec
+    }))
 }
