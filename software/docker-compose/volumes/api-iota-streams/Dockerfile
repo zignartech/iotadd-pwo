@@ -4,6 +4,7 @@ WORKDIR /opt/api-iota-streams
 
 COPY --chown=root:root src /opt/api-iota-streams/src
 COPY Cargo.toml /opt/api-iota-streams
+COPY Cargo.lock /opt/api-iota-streams
 
 RUN cargo build --release
 
