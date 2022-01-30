@@ -1,6 +1,6 @@
 # Temperature Humidity Sensor FS400-SHT2X(SHT21) 
 
-![](./PT-1000-Temperature-probe-01-optional.jpg)
+![](./61aJuP3stEL._AC_SL1500_.jpg)
 
 ### Documents
 * ![FS400-SHT21 Temperature Humidity Sensor](./FS400-SHT21-Temperature-Humidity-Sensor.pdf)
@@ -31,6 +31,16 @@
 | Default I2C address           |        64 (0x40)         |
 | Line Length                   |  Approx. 150cm / 59.1in  |
 | Weight                        |      115.8g / 4.1oz      |
+
+### Pinout
+
+| PINOUT |  COLOR  |
+| ------ |:-------:|
+| SDA    | GRN/BLU |
+| SCK    | YLW/WH  |
+| VCC    |   RED   |
+| GND    |   BLK   |
+
 
 ### Note:
 

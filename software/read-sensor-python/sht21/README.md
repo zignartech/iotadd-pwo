@@ -7,7 +7,7 @@ Supported devices include:
 - **DS18B20** temperature sensor
 - **BMP180** pressure and temperature sensor
 - **HTU21D** humidity and temperature sensor
-- **SHT20** humidity and temperature sensor
+- **SHT2X** humidity and temperature sensor
 - **MCP3004** A/D Converter (**MCP3008** also compatible)
 
 ## Installation

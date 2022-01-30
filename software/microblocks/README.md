@@ -32,7 +32,7 @@ to verify that you are in the **dialout** and **tty** groups.
 
 * **Raspberry**>>**Programming**>>**MicroBlocks**
 
-![](./open_mb.png)
+![](./images/open_mb.png)
 
 ## Set up ESP32 Boards
 
@@ -44,33 +44,33 @@ The ESP32 from Espressif Systems combines a 32-bit dual-core processor with WiFi
 
 To install the MicroBlocks firmware on an ESP32 board, launch MicroBlocks and plug in the board. From the MicroBlocks (gear) menu, select "install firmware on board":
 
-![](./setting.png)
+![](./images/setting.png)
 
 
-![](./updatefirmware.png)
+![](./images/updatefirmware.png)
 
 Then select "ESP32":
 
-![](./selectesp32.png)
+![](./images/selectesp32.png)
 
 As the firmware loads, you will see a progress screen:
 
-![](./espflashing.png)
+![](./images/espflashing.png)
 
 Once the firmware is installed, a green circle should appear to show that the board is connected.
 
-![](./connected.png)
+![](./images/connected.png)
 
 That may take a few seconds. In rare cases you may need to disconnect and reconnect the board.
 
 To verify that everything is working, try the following:
 
-![](./setuserledblock.png)
+![](./images/setuserledblock.png)
 
 The LED on your board should light up, showing that the board is connected.
 
 If the LED on your board does not light up, it could be that the LED is connected to a different pin on your board. (Different ESP32 boards connect the user LED to different pins.) You could look up the LED pin number in the data sheet for your board, but it's more fun to write a MicroBlocks program to find it for you:
 
-![](./led_pin_tester.png)
+![](./images/led_pin_tester.png)
 
 You're ready to code!

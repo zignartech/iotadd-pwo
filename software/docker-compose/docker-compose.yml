@@ -35,3 +35,11 @@ services:
       - ./volumes/grafana/grafana.ini:/etc/grafana/grafana.ini
     depends_on:
       - influxdb
+
+  streams:
+    container_name: streams
+    build:
+      context: ./volumes/api-iota-streams
+    restart: unless-stopped
+    ports:
+      - 3030:3030
