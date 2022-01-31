@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <iframe src="https://giphy.com/embed/p2CCCoAQyil6UmPPnT" width="480" height="386" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/p2CCCoAQyil6UmPPnT">via GIPHY</a></p>
+  <img src="pwo.gif"></a>
 </h1>
 
 <h2 align="center">PWO: Precision Water One</h2>
