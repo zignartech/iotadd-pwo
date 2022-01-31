@@ -3,7 +3,7 @@
   <img src="pwo.gif"></a>
 </h1>
 
-<h2 align="center">PWO: Precision Water One</h2>
+<h2 align="center">`PWO: Precision Water One`</h2>
 
 <p align="center">
     <a href="https://www.whiteboxes.ch/docs/tentacle/t3-mkII/#/" style="text-decoration:none;">
