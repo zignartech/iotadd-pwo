@@ -1,6 +1,6 @@
 # Water Flow
 
-<img src="./71+5O4QqfJL._SL1500_.jpg" width="200">
+<img src="./71+5O4QqfJL._SL1500_.jpg" width="600">
 
 ### Documents
 * ![Water flow datasheet](./Water_flow_sensor_datasheet.pdf)
