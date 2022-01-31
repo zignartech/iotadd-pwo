@@ -1,6 +1,8 @@
 # Conductivity Probe K 1.0
 
-<img src="./Conductivity-probe-K-1.0-01-optional.jpg" style="display: block; margin: auto;" width="400">
+<h1 align="center">
+  <img src="./Conductivity-probe-K-1.0-01-optional.jpg" width="400"></a>
+</h1>
 
 
 ### Documents

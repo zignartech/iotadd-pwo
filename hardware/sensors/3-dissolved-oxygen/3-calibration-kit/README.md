@@ -1,6 +1,8 @@
 # Replacement Dissolved Oxygen Electrolyte Solution
 
-<img src="./DO-Electrolyte-Solution-01.jpg" style="display: block; margin: auto;" width="400">
+<h1 align="center">
+  <img src="./DO-Electrolyte-Solution-01.jpg" width="400"></a>
+</h1>
 
 ### Documents
 * [ Dissolved Oxygen Electrolyte Solution Instructions](./do_electrolyte_solution_instructions.pdf)

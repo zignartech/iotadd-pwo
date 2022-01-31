@@ -1,6 +1,8 @@
 # Water Flow
 
-<img src="./water_flow.jpg" style="display: block; margin: auto;" width="400">
+<h1 align="center">
+  <img src="./water_flow.jpg" width="400"></a>
+</h1>
 
 ### Documents
 * [Water flow datasheet](./Water_flow_sensor_datasheet.pdf)

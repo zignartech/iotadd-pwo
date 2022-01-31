@@ -1,6 +1,8 @@
 # EZO™ Conductivity Circuit
 
-<img src="./EZO-Conductivity-Circuit-01.jpg" style="display: block; margin: auto;" width="400">
+<h1 align="center">
+  <img src="./EZO-Conductivity-Circuit-01.jpg" width="400"></a>
+</h1>
 
 ### Documents
 * [EZO™ Conductivity Circuit Datasheet](./EC_EZO_Datasheet.pdf)

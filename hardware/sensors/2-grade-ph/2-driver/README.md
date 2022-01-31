@@ -1,6 +1,8 @@
 # EZO™ pH Circuit
 
-<img src="./EZO-pH-Circuit-01.jpg" style="display: block; margin: auto;" width="400">
+<h1 align="center">
+  <img src="./EZO-pH-Circuit-01.jpg" width="400"></a>
+</h1>
 
 ### Documents
 * [EZO™ pH Circuit Datasheet](./pH_EZO_Datasheet_2.pdf)

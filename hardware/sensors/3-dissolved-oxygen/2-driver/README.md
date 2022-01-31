@@ -1,6 +1,8 @@
 # EZO™ Dissolved Oxygen Circuit
 
-<img src="./EZO-Dissolved-Oxygen-Circuit-01.jpg" style="display: block; margin: auto;" width="400">
+<h1 align="center">
+  <img src="./EZO-Dissolved-Oxygen-Circuit-01.jpg" width="400"></a>
+</h1>
 
 ### Documents
 * [ EZO™ Dissolved Oxygen Circuit Datasheet](./DO_EZO_Datasheet.pdf)

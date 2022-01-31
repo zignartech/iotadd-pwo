@@ -1,6 +1,8 @@
 # PT-1000 Temperature Probe
 
-<img src="./PT-1000-Temperature-probe-01-optional.jpg" style="display: block; margin: auto;" width="400">
+<h1 align="center">
+  <img src="./PT-1000-Temperature-probe-01-optional.jpg" width="400"></a>
+</h1>
 
 ### Documents
 * [PT-1000 Temperature Probe Datasheet](./PT-1000-probe.pdf)

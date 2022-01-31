@@ -1,6 +1,8 @@
 # Mini Lab Grade Dissolved Oxygen Probe
 
-<img src="./Mini-dissolved-oxygen-probe-01.jpg" style="display: block; margin: auto;" width="400">
+<h1 align="center">
+  <img src="./Mini-dissolved-oxygen-probe-01.jpg" width="400"></a>
+</h1>
 
 ### Documents
 * [ Mini Lab Grade Dissolved Oxygen Probe Datasheet](./Mini_DO_probe.pdf)

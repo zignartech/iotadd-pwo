@@ -1,6 +1,8 @@
 # Consumer Grade pH Probe
 
-<img src="./Consumer-Grade-pH-Probe-01-optional.jpg" style="display: block; margin: auto;" width="400">
+<h1 align="center">
+  <img src="./Consumer-Grade-pH-Probe-01-optional.jpg" width="400"></a>
+</h1>
 
 ### Documents
 * [Consumer Grade pH Probe Datasheet](./consumer-grade-pH-probe.pdf)

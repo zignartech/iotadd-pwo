@@ -1,7 +1,6 @@
 # Temperature Humidity Sensor FS400-SHT2X(SHT21) 
 
 <h1 align="center">
-  <br>
   <img src="./FS400-SHT21.jpg" width="400"></a>
 </h1>
 
@@ -46,7 +45,6 @@
 
 ### Connections
 <h1 align="center">
-  <br>
   <img src="./sht21_connection.png" width="800"></a>
 </h1>
 

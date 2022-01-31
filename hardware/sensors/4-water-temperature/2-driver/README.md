@@ -1,6 +1,8 @@
 # EZO™ RTD Temperature Circuit
 
-<img src="./EZO-RTD-Circuit-01.jpg" style="display: block; margin: auto;" width="400">
+<h1 align="center">
+  <img src="./EZO-RTD-Circuit-01.jpg" width="400"></a>
+</h1>
 
 ### Documents
 * [EZO™ RTD Circuit Datasheet](./EZO_RTD_Datasheet.pdf)
