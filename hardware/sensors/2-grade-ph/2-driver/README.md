@@ -1,10 +1,10 @@
 # EZO™ pH Circuit
 
-![](./EZO-pH-Circuit-01.jpg)
+<img src="./EZO-pH-Circuit-01.jpg" style="display: block; margin: auto;" width="400">
 
 ### Documents
-* ![EZO™ pH Circuit Datasheet](./pH_EZO_Datasheet_2.pdf)
-* ![ Wiring Diagram ](./ezo-ph-wiringdiagram.pdf)
+* [EZO™ pH Circuit Datasheet](./pH_EZO_Datasheet_2.pdf)
+* [ Wiring Diagram ](./ezo-ph-wiringdiagram.pdf)
 
 ### Description
 

@@ -1,10 +1,10 @@
 # EZO™ RTD Temperature Circuit
 
-![](./EZO-RTD-Circuit-01.jpg)
+<img src="./EZO-RTD-Circuit-01.jpg" style="display: block; margin: auto;" width="400">
 
 ### Documents
-* ![EZO™ RTD Circuit Datasheet](./EZO_RTD_Datasheet.pdf)
-* ![ Wiring Diagram ](./ezo-rtd-Wiringdiagram.pdf)
+* [EZO™ RTD Circuit Datasheet](./EZO_RTD_Datasheet.pdf)
+* [ Wiring Diagram ](./ezo-rtd-Wiringdiagram.pdf)
 
 ### Description
 

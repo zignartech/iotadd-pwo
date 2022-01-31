@@ -1,9 +1,9 @@
 # PT-1000 Temperature Probe
 
-![](./PT-1000-Temperature-probe-01-optional.jpg)
+<img src="./PT-1000-Temperature-probe-01-optional.jpg" style="display: block; margin: auto;" width="400">
 
 ### Documents
-* ![PT-1000 Temperature Probe Datasheet](./PT-1000-probe.pdf)
+* [PT-1000 Temperature Probe Datasheet](./PT-1000-probe.pdf)
 
 ### Description
 

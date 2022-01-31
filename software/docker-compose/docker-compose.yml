@@ -2,39 +2,39 @@ version: "3.3"
 
 services:
 
-  # influxdb:
-  #   container_name: influxdb
-  #   image: influxdb:1.8
-  #   restart: unless-stopped
-  #   ports:
-  #     - 8086:8086
-  #   volumes:
-  #     - ~/stack-data/influxdb-storage:/var/lib/influxdb
-  #   environment:
-  #     - "INFLUXDB_DB=devices"
-  #     - "INFLUXDB_USER=grafana"
-  #     - "INFLUXDB_USER_PASSWORD=STACK2022!"
-  #     - "INFLUXDB_ADMIN_USER=admin"
-  #     - "INFLUXDB_ADMIN_PASSWORD=IATC2022!"
-  #     - "INFLUXDB_HTTP_AUTH_ENABLED=true"
+  influxdb:
+    container_name: influxdb
+    image: influxdb:1.8
+    restart: unless-stopped
+    ports:
+      - 8086:8086
+    volumes:
+      - ~/stack-data/influxdb-storage:/var/lib/influxdb
+    environment:
+      - "INFLUXDB_DB=devices"
+      - "INFLUXDB_USER=grafana"
+      - "INFLUXDB_USER_PASSWORD=STACK2022!"
+      - "INFLUXDB_ADMIN_USER=admin"
+      - "INFLUXDB_ADMIN_PASSWORD=IATC2022!"
+      - "INFLUXDB_HTTP_AUTH_ENABLED=true"
 
-  # grafana:
-  #   container_name: grafana
-  #   image: grafana/grafana
-  #   restart: unless-stopped
-  #   user: "$UID:$GID"
-  #   ports:
-  #     - 3000:3000
-  #   environment:
-  #     - "GF_SECURITY_ADMIN_USER=admin"
-  #     - "GF_SECURITY_ADMIN_PASSWORD=IATC2022!"
-  #   volumes:
-  #     - ./volumes/grafana/data/plugins:/var/lib/grafana/plugins
-  #     - ./volumes/grafana/data/grafana.db:/var/lib/grafana/grafana.db
-  #     - ./volumes/grafana/provisioning:/etc/grafana/provisioning
-  #     - ./volumes/grafana/grafana.ini:/etc/grafana/grafana.ini
-  #   depends_on:
-  #     - influxdb
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    restart: unless-stopped
+    user: "$UID:$GID"
+    ports:
+      - 3000:3000
+    environment:
+      - "GF_SECURITY_ADMIN_USER=admin"
+      - "GF_SECURITY_ADMIN_PASSWORD=IATC2022!"
+    volumes:
+      - ./volumes/grafana/data/plugins:/var/lib/grafana/plugins
+      - ./volumes/grafana/data/grafana.db:/var/lib/grafana/grafana.db
+      - ./volumes/grafana/provisioning:/etc/grafana/provisioning
+      - ./volumes/grafana/grafana.ini:/etc/grafana/grafana.ini
+    depends_on:
+      - influxdb
 
   streams:
     container_name: streams

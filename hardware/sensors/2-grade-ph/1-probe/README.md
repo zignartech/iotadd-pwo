@@ -1,10 +1,10 @@
 # Consumer Grade pH Probe
 
-![](./Consumer-Grade-pH-Probe-01-optional.jpg)
+<img src="./Consumer-Grade-pH-Probe-01-optional.jpg" style="display: block; margin: auto;" width="400">
 
 ### Documents
-* ![Consumer Grade pH Probe Datasheet](./consumer-grade-pH-probe.pdf)
-* ![ How to measure the pH of soil](./ph_soil.pdf)
+* [Consumer Grade pH Probe Datasheet](./consumer-grade-pH-probe.pdf)
+* [ How to measure the pH of soil](./ph_soil.pdf)
 
 ### Description
 

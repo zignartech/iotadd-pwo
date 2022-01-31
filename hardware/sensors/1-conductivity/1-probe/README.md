@@ -1,10 +1,11 @@
 # Conductivity Probe K 1.0
 
-![](./Conductivity-probe-K-1.0-01-optional.jpg)
+<img src="./Conductivity-probe-K-1.0-01-optional.jpg" style="display: block; margin: auto;" width="400">
+
 
 ### Documents
-* ![Conductivity Probe Datasheet](./EC_K_1.0_probe.pdf)
-* ![How to measure the conductivity of soil](./ec_soil.pdf)
+* [Conductivity Probe Datasheet](./EC_K_1.0_probe.pdf)
+* [How to measure the conductivity of soil](./ec_soil.pdf)
 
 ### Description
 

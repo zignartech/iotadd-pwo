@@ -1,10 +1,10 @@
 # Mini Lab Grade Dissolved Oxygen Probe
 
-![](./Mini-dissolved-oxygen-probe-01.jpg)
+<img src="./Mini-dissolved-oxygen-probe-01.jpg" style="display: block; margin: auto;" width="400">
 
 ### Documents
-* ![ Mini Lab Grade Dissolved Oxygen Probe Datasheet](./Mini_DO_probe.pdf)
-* ![ How to properly cut your probe cable](./how-to-properly-cut-probe-cables.pdf)
+* [ Mini Lab Grade Dissolved Oxygen Probe Datasheet](./Mini_DO_probe.pdf)
+* [ How to properly cut your probe cable](./how-to-properly-cut-probe-cables.pdf)
 
 ### Description
 

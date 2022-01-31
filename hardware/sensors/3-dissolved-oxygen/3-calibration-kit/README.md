@@ -1,10 +1,10 @@
 # Replacement Dissolved Oxygen Electrolyte Solution
 
-![](./DO-Electrolyte-Solution-01.jpg)
+<img src="./DO-Electrolyte-Solution-01.jpg" style="display: block; margin: auto;" width="400">
 
 ### Documents
-* ![ Dissolved Oxygen Electrolyte Solution Instructions](./do_electrolyte_solution_instructions.pdf)
-* ![ Dissolved Oxygen Electrolyte Solution SDS](./Dissolved-Oxygen-Electrolyte-Solution-SDS.pdf)
+* [ Dissolved Oxygen Electrolyte Solution Instructions](./do_electrolyte_solution_instructions.pdf)
+* [ Dissolved Oxygen Electrolyte Solution SDS](./Dissolved-Oxygen-Electrolyte-Solution-SDS.pdf)
 
 ### Description
 

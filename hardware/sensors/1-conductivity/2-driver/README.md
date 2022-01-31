@@ -1,9 +1,9 @@
 # EZO™ Conductivity Circuit
 
-![](./EZO-Conductivity-Circuit-01.jpg)
+<img src="./EZO-Conductivity-Circuit-01.jpg" style="display: block; margin: auto;" width="400">
 
 ### Documents
-* ![EZO™ Conductivity Circuit Datasheet](./EC_EZO_Datasheet.pdf)
+* [EZO™ Conductivity Circuit Datasheet](./EC_EZO_Datasheet.pdf)
 
 ### Description
 

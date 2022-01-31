@@ -1,9 +1,9 @@
 # pH Probe Reconditioning Kit
 
-![](./Reconditioning-Kit-01.jpg)
+<img src="./Reconditioning-Kit-01.jpg" style="display: block; margin: auto;" width="400">
 
 ### Documents
-* ![pH Reconditioning Kit Instructions](./pH_reconditioning_kit_instructions.pdf)
+* [pH Reconditioning Kit Instructions](./pH_reconditioning_kit_instructions.pdf)
 
 
 ### Specifications

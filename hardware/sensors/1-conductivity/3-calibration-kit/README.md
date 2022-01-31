@@ -1,9 +1,9 @@
 # Conductivity Calibration K 1.0 Set
 
-![](./Conductivity-Calibration-K-1.0.jpg)
+<img src="./Conductivity-Calibration-K-1.0.jpg" style="display: block; margin: auto;" width="400">
 
 ### Documents
-* ![Conductivity Calibration K 1.0 Set SDS](./Conductivity-k1.0-SDS.pdf)
+* [Conductivity Calibration K 1.0 Set SDS](./Conductivity-k1.0-SDS.pdf)
 
 ### Description
 

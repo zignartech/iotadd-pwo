@@ -1,10 +1,10 @@
 # EZO™ Dissolved Oxygen Circuit
 
-![](./EZO-Dissolved-Oxygen-Circuit-01.jpg)
+<img src="./EZO-Dissolved-Oxygen-Circuit-01.jpg" style="display: block; margin: auto;" width="400">
 
 ### Documents
-* ![ EZO™ Dissolved Oxygen Circuit Datasheet](./DO_EZO_Datasheet.pdf)
-* ![ Wiring Diagram ](./ezo-do-Wiringdiagram.pdf)
+* [ EZO™ Dissolved Oxygen Circuit Datasheet](./DO_EZO_Datasheet.pdf)
+* [ Wiring Diagram ](./ezo-do-Wiringdiagram.pdf)
 
 ### Description
 
