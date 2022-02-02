@@ -1,5 +1,30 @@
 # Node-RED - Running on Raspberry Pi
 
+## Installing and Upgrading Node-RED
+
+Running the following command will download and run the script. If you want to review the contents of the script first, you can view it on Github.
+
+```
+bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+```
+There are extra parameters you can pass to the script. Add --help to the above command to see them.
+
+>  This script will work on any Debian-based operating system, including Ubuntu and Diet-Pi. You may need to run `sudo apt install build-essential git curl` first to ensure npm is able to fetch and build any binary modules it needs to install. 
+
+This script will:
+
+
+* Remove the existing version of Node-RED if present.
+* If it detects Node.js is already installed, it will ensure it is at least v12. If less than v12 it will stop and let the user decide whether to stay with Node-RED version 1 - or upgrade Nodejs to a more recent LTS version. If nothing is found it will install the current Node.js LTS release using the NodeSource package.
+* Install the latest version of Node-RED using npm.
+* Optionally install a collection of useful Pi-specific nodes.
+* Setup Node-RED to run as a service and provide a set of commands to work with the service.
+
+> Node-RED has also been packaged for the Raspberry Pi OS repositories and appears in their list of 'Recommended Software'. This allows it to be installed using `apt-get install nodered` and includes the Raspberry Pi OS-packaged version of Node.js, but does not include npm.
+
+While using these packages is convenient at first, we strongly recommend using the install script above instead.
+
+
 ## Running as a service
 
 The following commands are provided to work with the service:
@@ -51,7 +76,7 @@ Perform below listed steps to search and add a node to your node-RED instance.
 * Click on install button and the confirmation button of the node you want to be installed.
 * This will install the node in Node-RED.
 
-#### Install two required palettes
+#### Install three required palettes
 
 * Menu and Manage palette
 
@@ -64,17 +89,13 @@ Perform below listed steps to search and add a node to your node-RED instance.
 * Type the search query, install and confirmation
 
 1.  Install node-red-contrib-ezo
+2.  Install node-red-contrib-influxdb
+3.  Install node-red-dashboard
+
+* Example: node-red-contrib-ezo
 ![](./images/node-red-contrib-ezo.png)
     - Click on install
 ![](./images/install_ezo.png)
-
-2.  Install node-red-contrib-influxdb
-![](./images/node-red-contrib-influxdb.png)
-    - Click on install
-![](./images/install_influxdb.png)
-
-* Installed Nodes.
-![](./images/installed_nodes.png)
 
 ## Importing Flows
 

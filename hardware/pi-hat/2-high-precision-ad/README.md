@@ -20,7 +20,9 @@ There's no AD/DA function on the Raspberry Pi GPIO interface, this may trouble y
 
 ### What's on Board
 
-![](./High-Precision-AD-DA-Board-intro.jpg)
+<h1 align="center">
+  <img src="./High-Precision-AD-DA-Board-intro.jpg" width="500"></a>
+</h1>
 
 1. Raspberry Pi GPIO interface : for connecting with the Pi
 2. AD/DA input/output : screw terminals

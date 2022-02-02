@@ -14,7 +14,9 @@ The Whitebox T3 connects to these Raspberry Pi pins
 
 The Whitebox T3 does not "occupy" any pin exclusively. The T3 is mostly transparent to other HATs - they can even be stacked on top and will work as usual.
 
-![](./Whitebox-T3-05.jpg)
+<h1 align="center">
+  <img src="./Whitebox-T3-05.jpg" width="400"></a>
+</h1>
 
 ## Port 1 + 2
 
@@ -60,7 +62,9 @@ The Whitebox T3 does not "occupy" any pin exclusively. The T3 is mostly transpar
 
 #### Pinout Port 4 + 5
 
-![](./whitebox-t3-ports-4-5-2.jpg)
+<h1 align="center">
+  <img src="./whitebox-t3-ports-4-5-2.jpg" width="600"></a>
+</h1>
 
 * 3V3: 3.3V
 * GND: GND
@@ -81,4 +85,6 @@ The isolators in port 1 and 2 can be disabled. If disabled, the EZO circuit is c
 * `4`: port 4 ALM pin
 * `5`: port 5 ALM pin
 
-![](./whitebox-t3-port-config.jpg)
+<h1 align="center">
+  <img src="./whitebox-t3-port-config.jpg" width="600"></a>
+</h1>

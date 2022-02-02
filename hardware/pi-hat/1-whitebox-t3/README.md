@@ -1,6 +1,8 @@
 # Quickstart Tutorial - Whitebox T3
 
-![](./Whitebox-T3-03.jpg)
+<h1 align="center">
+  <img src="./Whitebox-T3-03.jpg" width="400"></a>
+</h1>
 
 ## Prerequisites
 
@@ -24,7 +26,10 @@ For this quickstart tutorial you need:
 sudo raspi-config
 ```
 5. In the menu, find the option to activate `I2C`. 
-![](https://i.imgur.com/FiE7CMp.png)
+
+<h1 align="center">
+  <img src="./raspi-config.png" width="600"></a>
+</h1>
 
 * At the time of writing this is under `5 Interfacing Options` > `P5 I2C`
 
@@ -39,7 +44,6 @@ sudo apt-get upgrade
 4. Install the I2C tools:
 
 ```
-sudo apt-get install python-smbus
 sudo apt-get install i2c-tools
 ```
 5. Reboot your Pi
@@ -64,7 +68,9 @@ sudo i2cdetect -y 1
 ```
 you will see all your I2C devices in the table.
 
-![](https://i.imgur.com/Y1Nyfdc.png)
+<h1 align="center">
+  <img src="./i2cdetect.png" width="600"></a>
+</h1>
 
 > When the screenshot was taken, an EZO pH Circuit (0x63), an EZO DO Circuit (0x61) and a HDC1008 humidity sensor (0x42) have been connected to the Raspbyerry Pi.
 
