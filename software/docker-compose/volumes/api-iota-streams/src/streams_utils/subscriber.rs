@@ -71,8 +71,8 @@ impl Subscriptor {
         self.subscriber.fetch_all_next_msgs().await
     }
 
-    pub async fn fetch_next_msgs(&mut self) -> Vec<UnwrappedMessage> {
-        self.subscriber.fetch_next_msgs().await
-    }
+    // pub async fn fetch_next_msgs(&mut self) -> Vec<UnwrappedMessage> {
+    //     self.subscriber.fetch_next_msgs().await
+    // }
 
 }

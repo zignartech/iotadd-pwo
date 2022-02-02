@@ -85,7 +85,6 @@ pub async fn addressSendOne(query: Query<SendOneQuery>, bytes: web::Bytes) -> Ht
           "password": autor.password.clone(),
           "state": encodedExported,
         },
-
     }))
 }
 
@@ -110,12 +109,15 @@ pub async fn createSubscriber(query: Query<CreateSubscriberQuery>) -> HttpRespon
 
     HttpResponse::Ok().json(json!({
 
+        "address": {
+            "appInst":announcement_link.appinst.to_string(),
+            "msgId": announcement_link.msgid.to_string(),
+        },
         "subscriber":{
           "password": password.clone(),
           "state": encodedExported,
 
         },
-
     }))
 }
 
@@ -171,7 +173,5 @@ pub async fn addressFetchAll(query: Query<FetchAll>) -> HttpResponse {
     println!("password: {}", subscriptor.password.clone());
     println!("state: {}", encodedExported);
 
-    HttpResponse::Ok().json(json!({
-        "data": my_vec
-    }))
+    HttpResponse::Ok().json(json!({ "data": my_vec }))
 }
