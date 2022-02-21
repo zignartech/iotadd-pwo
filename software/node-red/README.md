@@ -124,9 +124,9 @@ The Import dialog can be used to import a flow by the following methods:
 
 * Double click on Node Influxdb 
 ![](./images/influxdb-setup.png)
-* Click on pencil
+* Click on the pencil
 ![](./images/pencil.png)
-* Put Username and Password
+* Write Username and Password
 ![](./images/username-password.png)
 
 * Click on Update and Done, then Deploy
