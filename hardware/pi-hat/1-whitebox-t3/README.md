@@ -17,7 +17,7 @@ For this quickstart tutorial you need:
 
 > Don't mount the Whitebox T3 to the Raspberry Pi yet
 
-1. Download a recent version of [Raspbian](https://www.raspberrypi.com/software/operating-systems/).
+1. Download a recent version of [Raspberry Pi OS (64-bit)](https://www.raspberrypi.com/software/operating-systems/).
 2. Burn the img-file to an SD card, e.g. using [Raspberry Pi Imager](https://www.raspberrypi.com/software/) (for Windows, OSX, Linux).
 3. Boot your Pi (the Whitebox T3 still not connected)
 4. Use the terminal to start the `raspi-config` tool:

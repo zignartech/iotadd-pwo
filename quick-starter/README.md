@@ -1,5 +1,7 @@
 # Quick Starter
 
+* Use image => [Raspberry Pi OS (64-bit)](https://www.raspberrypi.com/software/operating-systems/)
+
 1. [Setup Hardware](https://github.com/zignartech/iotadd-pwo/tree/main/hardware/sensors)
 2. [Test I2C](https://github.com/zignartech/iotadd-pwo/tree/main/hardware/pi-hat/1-whitebox-t3)
 3. [Setup Docker and Services](https://github.com/zignartech/iotadd-pwo/tree/main/software/docker-compose)
