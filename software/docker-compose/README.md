@@ -39,7 +39,7 @@ docker ps
 Install using pip
 
 ```
-pip3 install docker-compose
+pip install docker-compose
 ```
 
 ## verify docker compose installed

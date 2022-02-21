@@ -1,38 +1,15 @@
-# MicroBlocks on Raspberry pi
+# Running MicroBlocks in the Browser
 
-## Set up your Raspberry pi to use MicroBlocks
+As of MicroBlocks 0.5, MicroBlocks runs in Chromium-based web browsers, either Google's Chrome browser or recent versions of MicroSoft's Edge. (Each of them offers an experimental Chromium feature known as "WebSerial API" to communicate with the microcontroller.) This can be helpful in school, library, and other settings where it is difficult to install application programs.
+As long as the computer has one of the supported browsers and a USB port, you can run MicroBlocks!
 
-Go to the [Download](https://microblocks.fun/releases) page and click the **Raspberry pi (Raspbian)** button.
+## Running MicroBlocks
 
-The first time you install MicroBlocks you must reboot. The installer adds the user to the access group for the serial port, but that change does not take effect until the next reboot.
+To run MicroBlocks in the browser visit:
 
-Open a terminal and run (for 64-bit):
+=> https://microblocks.fun/run/microblocks.html
 
-```
-sudo dpkg -i ~/Downloads/ublocks-amd64.deb
-```
-
-or (for 32-bit):
-
-```
-sudo dpkg -i ~/Downloads/ublocks-armhf.deb
-```
-
-If MicroBlocks does not connect to your board, make sure that you rebooted after running the installer. Then run:
-
-```
-groups
-```
-
-to verify that you are in the **dialout** and **tty** groups.
-
-[Reference](https://microblocks.fun/get-started)
-
-## Open MicroBlocks
-
-* **Raspberry**>>**Programming**>>**MicroBlocks**
-
-![](./images/open_mb.png)
+Note: Be sure to use HTTPS, not HTTP, otherwise MicroBlocks won't be able to connect to the microcontroller.
 
 ## Set up ESP32 Boards
 

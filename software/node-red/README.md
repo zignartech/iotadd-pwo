@@ -51,6 +51,8 @@ sudo systemctl disable nodered.service
 #### For the project we recommend running the following command in the console
 
 ```
+node-red-start
+
 sudo systemctl enable nodered.service
 ```
 
@@ -118,4 +120,13 @@ The Import dialog can be used to import a flow by the following methods:
 * Then, click on Deploy
 ![](./images/deploy.png)
 
+### Set up Node Influxdb
 
+* Double click on Node Influxdb 
+![](./images/influxdb-setup.png)
+* Click on pencil
+![](./images/pencil.png)
+* Put Username and Password
+![](./images/username-password.png)
+
+* Click on Update and Done, then Deploy
