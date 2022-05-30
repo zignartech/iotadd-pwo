@@ -1,17 +1,26 @@
-FROM rust:latest
+FROM ekidd/rust-musl-builder:latest AS builder
 
-WORKDIR /opt/api-iota-streams
+COPY  --chown=rust:rust src ./
 
-COPY --chown=root:root src /opt/api-iota-streams/src
-COPY Cargo.toml /opt/api-iota-streams
-COPY Cargo.lock /opt/api-iota-streams
+COPY Cargo.toml /home/rust/
+COPY Cargo.lock /home/rust/
 
 RUN cargo build --release
 
-WORKDIR /opt/api-iota-streams/target/release/
+FROM debian:buster
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		ca-certificates \
+	&& rm -rf /var/lib/apt/lists/*
 
-RUN chmod +X api-iota-streams
+WORKDIR /opt/api-iota-streams
 
-COPY development.env /opt/api-iota-streams/target/release/
+COPY --from=builder \
+    /home/rust/target/x86_64-unknown-linux-musl/release/api-iota-streams \
+    ./
 
-ENTRYPOINT ["/opt/api-iota-streams/target/release/api-iota-streams"]
+COPY development.env ./
+
+CMD ["/opt/api-iota-streams/api-iota-streams"]
+
+# docker build -t api-iota-streams .
+# docker run -p 3030:3030 api-iota-streams

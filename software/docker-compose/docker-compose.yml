@@ -38,8 +38,11 @@ services:
 
   streams:
     container_name: streams
-    build:
-      context: ./volumes/api-iota-streams
+    image: zignartech/api-iota-streams:latest
+    # build:
+    #   context: ./volumes/api-iota-streams
+    volumes:
+      - ./volumes/api-iota-streams/development.env:/opt/api-iota-streams/development.env
     restart: unless-stopped
     ports:
       - 3030:3030

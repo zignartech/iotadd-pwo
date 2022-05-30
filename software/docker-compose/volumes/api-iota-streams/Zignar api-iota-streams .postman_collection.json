@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "e29e0534-8b21-40d9-ad78-70f2973a5ff9",
+		"name": "Zignar api-iota-streams Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15905511"
+	},
+	"item": [
+		{
+			"name": "Author",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"//const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \r",
+							"\r",
+							"//pm.collectionVariables.set(\"sendingSeed\",genRanHex(81));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/create_author",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"create_author"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscriber",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const a = {\r",
+							"        \"address\": {\r",
+							"        \"appInst\": \"7bcc28ee6d73a73af4d1aa9ddeff2195462a21511970b7bca8ff91a069d5672d0000000000000000\",\r",
+							"        \"msgId\": \"a34a9add0c754bb114649ee7\"\r",
+							"    },\r",
+							"}\r",
+							"\r",
+							"const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \r",
+							"\r",
+							"pm.collectionVariables.set(\"Address\",JSON.stringify(a['address']));\r",
+							"//pm.collectionVariables.set(\"sendingSeed\",genRanHex(81));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/create_subscriber?address={{Address}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"create_subscriber"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "{{Address}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendOne",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const a ={\r",
+							"    \"address\": {\r",
+							"        \"appInst\": \"df558b59ca750bf6bda09d419820605eeb08edae90a2900daee03cb4eff2f5e20000000000000000\",\r",
+							"        \"msgId\": \"5dd3153c1a5cbed48d6bcb02\"\r",
+							"    },\r",
+							"    \"author\": {\r",
+							"        \"password\": \"VBOS9NSQALOK\",\r",
+							"        \"state\": \"AAC-E15G9G0SnjzBBVz0_2PaSW8Z5N8THGNjf4YFPOLoowABBXV0Zi04AAAAAAAAfQAB31WLWcp1C_a9oJ1BmCBgXusI7a6QopANruA8tO_y9eIAAAAAAAAAABnZFawAMyxS6ZBw2wHfVYtZynUL9r2gnUGYIGBe6wjtrpCikA2u4Dy07_L14gECGdkVrAAzLFLpkHDbbUtCU6nkIb4ApSOBtSy9T0lZ1H_OLt_HDImJRWsn-XoAXdMVPBpcvtSNa8sCrirhzag6ep5BqC7W4wXqZGfoWBlwbD036CuSH__7LvYCAQHKdjJnwQk7TTt2Vzcc2JB9zD6Auk19Odl8yPeOsFm6skVd0xU8Gly-1I1rywIAAAAAAAAAA8k9DK-CFx3x8pkTuxMYdnjARt4aOry7NJdK3qWeBWAB\"\r",
+							"    }\r",
+							"}\r",
+							"const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \r",
+							"\r",
+							"pm.collectionVariables.set(\"Address\",JSON.stringify(a['address']) );\r",
+							"pm.collectionVariables.set(\"Author\",JSON.stringify(a['author']) );\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"lightIntensity\": 19182.36419008588,\r\n    \"internalTemperature\": 47.09400020911989,\r\n    \"waterLevel\": 0.7959889259018974,\r\n    \"soilMoisture\": 16.70905799549854,\r\n    \"environmentTemperature\": 54.17784950427142,\r\n    \"environmentHumidity\": 2.5407154328334998,\r\n    \"Co2Concentration\": 16.139969450448262,\r\n    \"deviceId\": \"ALLPA_TESTER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3030/address/sendOne?address={{Address}}&author={{Author}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"address",
+						"sendOne"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "{{Address}}"
+						},
+						{
+							"key": "author",
+							"value": "{{Author}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchAll",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const a ={\r",
+							"    \"subscriber\": {\r",
+							"        \"password\": \"QHXETLRHWPAC\",\r",
+							"        \"state\": \"AAHiw9PfEh9TdYRtW0L9n_3TZ8ZT_qiVfAUeIEqRHSUTLQABBXV0Zi04AAAAAAAAfQAB31WLWcp1C_a9oJ1BmCBgXusI7a6QopANruA8tO_y9eIAAAAAAAAAABnZFawAMyxS6ZBw2wHfVYtZynUL9r2gnUGYIGBe6wjtrpCikA2u4Dy07_L14gEBGdkVrAAzLFLpkHDbSkluDNR38mjXEIMBkvw09lOoJKwsZTjm3VDKA48tZjkAAQLaF4h-X20K9MmvJGjpiL_21aVg7aDhtfMTB4YS-JoaPPEZ2RWsADMsUumQcNsAAAAAAAAAAgef7mUhZOXZvE8qjH-O68k_8f2UgFHXIowBf4DdGjD5AxnZFawAMyxS6ZBw2wAAAAAAAAAChaUIzs8IxT8wDVcMQtPkno-_Huy__4iVkmZWjpUPf48\"\r",
+							"    }\r",
+							"}\r",
+							"const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \r",
+							"\r",
+							"pm.collectionVariables.set(\"Address\",JSON.stringify(a['address']) );\r",
+							"pm.collectionVariables.set(\"Subscriber\",JSON.stringify(a['subscriber']) );\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3030/address/fetchAll?subscriber={{Subscriber}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"address",
+						"fetchAll"
+					],
+					"query": [
+						{
+							"key": "subscriber",
+							"value": "{{Subscriber}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "address",
+			"value": ""
+		},
+		{
+			"key": "randomSeed",
+			"value": ""
+		},
+		{
+			"key": "Address",
+			"value": ""
+		},
+		{
+			"key": "Body",
+			"value": ""
+		},
+		{
+			"key": "Author",
+			"value": ""
+		},
+		{
+			"key": "Subscriptor",
+			"value": ""
+		},
+		{
+			"key": "sendingSeed",
+			"value": ""
+		},
+		{
+			"key": "Subscriber",
+			"value": ""
+		}
+	]
+}
