@@ -57,6 +57,10 @@ the folder where the `docker-compose.yml` resides, simply execute:
 ```
 docker-compose up -d
 ```
+for Broker MQTT
+```
+docker-compose -f docker-compose.broker.yml up -d
+```
 ## You should see your container running now:
 
 ```

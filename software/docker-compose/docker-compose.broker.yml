@@ -1,0 +1,63 @@
+version: "3.3"
+services:
+
+  influxdb:
+    container_name: influxdb
+    image: influxdb:1.8
+    restart: unless-stopped
+    ports:
+      - 8086:8086
+    volumes:
+      - ~/stack-data/influxdb-storage:/var/lib/influxdb
+    environment:
+      - "INFLUXDB_DB=devices"
+      - "INFLUXDB_USER=grafana"
+      - "INFLUXDB_USER_PASSWORD=STACK2022!"
+      - "INFLUXDB_ADMIN_USER=admin"
+      - "INFLUXDB_ADMIN_PASSWORD=IATC2022!"
+      - "INFLUXDB_HTTP_AUTH_ENABLED=true"
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    restart: unless-stopped
+    user: "$UID:$GID"
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin 
+      - GF_SECURITY_ADMIN_PASSWORD=IATC2022!
+    volumes:
+      - ./volumes/grafana/data/plugins:/var/lib/grafana/plugins
+      - ./volumes/grafana/provisioning:/etc/grafana/provisioning
+      - ./volumes/grafana/grafana.ini:/etc/grafana/grafana.ini
+    depends_on:
+      - influxdb
+
+  emqx:
+    container_name: emqx
+    image: emqx/emqx:4.3.0
+    restart: unless-stopped
+    ports:
+      - 1883:1883
+      - 8081:8081
+      - 8083:8083
+      - 8084:8084
+      - 8883:8883
+      - 18083:18083
+    environment:
+      - EMQX_NAME=IATC-BROKER
+      - EMQX_HOST=127.0.0.1
+      - EMQX_DASHBOARD__DEFAULT_USER__LOGIN=admin
+      - EMQX_DASHBOARD__DEFAULT_USER__PASSWORD=IATC2022!
+      - EMQX_LOADED_PLUGINS=emqx_recon,emqx_retainer,emqx_management,emqx_dashboard
+      - EMQX_ALLOW_ANONYMOUS=true
+    volumes:
+      - vol-emqx-data:/opt/emqx/data
+      - vol-emqx-etc:/opt/emqx/etc
+      - vol-emqx-log:/opt/emqx/log
+
+volumes:
+  vol-emqx-data:
+  vol-emqx-etc:
+  vol-emqx-log:
