@@ -28,9 +28,10 @@ services:
       - GF_SECURITY_ADMIN_USER=admin 
       - GF_SECURITY_ADMIN_PASSWORD=IATC2022!
     volumes:
-      - ./volumes/grafana/data/plugins:/var/lib/grafana/plugins
-      - ./volumes/grafana/provisioning:/etc/grafana/provisioning
-      - ./volumes/grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./volumes/grafana-main/data/plugins:/var/lib/grafana/plugins
+      - ./volumes/grafana-main/data/grafana.db:/var/lib/grafana/grafana.db
+      - ./volumes/grafana-main/provisioning:/etc/grafana/provisioning
+      - ./volumes/grafana-main/grafana.ini:/etc/grafana/grafana.ini
     depends_on:
       - influxdb
 

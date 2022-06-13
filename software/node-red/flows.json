@@ -1,6 +1,6 @@
 [
     {
-        "id": "cf029201dc01b7cc",
+        "id": "3487cbe2e148f9a5",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,7 +8,7 @@
         "env": []
     },
     {
-        "id": "ccbccf54e46ce614",
+        "id": "56c875fd8b7188a8",
         "type": "tab",
         "label": "Flow 2",
         "disabled": false,
@@ -16,7 +16,7 @@
         "env": []
     },
     {
-        "id": "52e83c2c3f6e16fb",
+        "id": "fab444a69628649e",
         "type": "tab",
         "label": "Flow 3",
         "disabled": false,
@@ -24,7 +24,7 @@
         "env": []
     },
     {
-        "id": "c02260eb2d41958d",
+        "id": "4c2a7f7ea8161540",
         "type": "tab",
         "label": "Flow 4",
         "disabled": false,
@@ -374,16 +374,42 @@
         "className": ""
     },
     {
-        "id": "6fb44f61a408e85c",
+        "id": "afc0b7c9ed2d83a7",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "d1af552f569ffe3e",
         "type": "inject",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "Trigger",
         "props": [
             {
                 "p": "payload"
             }
         ],
-        "repeat": "300",
+        "repeat": "30",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -394,18 +420,17 @@
         "y": 140,
         "wires": [
             [
-                "d719b174c10417f3",
-                "a752cb1170133474",
-                "ff923f014831988a",
-                "68807e3f4685d640",
-                "464d97d93fd21f27"
+                "afbe38c206560368",
+                "bc69da7077455a47",
+                "4890f8a60752854f",
+                "93aabdbf3721c319"
             ]
         ]
     },
     {
-        "id": "b99ffb0dcf83e3a4",
+        "id": "9bfe148107b407b1",
         "type": "debug",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -415,14 +440,14 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 990,
-        "y": 160,
+        "x": 1230,
+        "y": 180,
         "wires": []
     },
     {
-        "id": "d719b174c10417f3",
+        "id": "afbe38c206560368",
         "type": "ezo",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "pH",
         "address": 3,
         "customAddr": false,
@@ -433,55 +458,14 @@
         "y": 160,
         "wires": [
             [
-                "52cf00e7e52aaea7"
+                "f2678dac6e194ac6"
             ]
         ]
     },
     {
-        "id": "464d97d93fd21f27",
-        "type": "exec",
-        "z": "cf029201dc01b7cc",
-        "command": "python3 iotadd-pwo/software/read-sensor-python/sht21/sht21.py",
-        "addpay": "payload",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 410,
-        "y": 540,
-        "wires": [
-            [
-                "b388e9b27fe0fd08"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "b388e9b27fe0fd08",
+        "id": "f2678dac6e194ac6",
         "type": "function",
-        "z": "cf029201dc01b7cc",
-        "name": "",
-        "func": "flow.set('Ambient', JSON.parse(msg.payload));\nconst payload = JSON.parse(msg.payload);\n\nreturn {\n    payload\n};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 480,
-        "wires": [
-            [
-                "baa992846d2a1420"
-            ]
-        ]
-    },
-    {
-        "id": "52cf00e7e52aaea7",
-        "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "flow.set('pH', msg.payload);\nconst payload = {\"pH\": msg.payload};\nreturn {\n    payload\n};",
         "outputs": 1,
@@ -493,15 +477,15 @@
         "y": 160,
         "wires": [
             [
-                "baa992846d2a1420",
-                "0eba585710928ae8"
+                "5c263ae3ba374904",
+                "f13c1e6d3f0ff1fd"
             ]
         ]
     },
     {
-        "id": "a752cb1170133474",
+        "id": "bc69da7077455a47",
         "type": "ezo",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "DO",
         "address": 3,
         "customAddr": false,
@@ -512,14 +496,14 @@
         "y": 240,
         "wires": [
             [
-                "379cc20e12725340"
+                "07f757b11c1f07c2"
             ]
         ]
     },
     {
-        "id": "379cc20e12725340",
+        "id": "07f757b11c1f07c2",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "flow.set('DO', msg.payload);\nconst payload = {\"DO\": msg.payload};\nreturn {\n    payload\n};",
         "outputs": 1,
@@ -531,14 +515,14 @@
         "y": 240,
         "wires": [
             [
-                "baa992846d2a1420"
+                "5c263ae3ba374904"
             ]
         ]
     },
     {
-        "id": "ff923f014831988a",
+        "id": "4890f8a60752854f",
         "type": "ezo",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "EC",
         "address": 3,
         "customAddr": false,
@@ -549,14 +533,14 @@
         "y": 320,
         "wires": [
             [
-                "5905d874f8199e36"
+                "865518522fd4122a"
             ]
         ]
     },
     {
-        "id": "5905d874f8199e36",
+        "id": "865518522fd4122a",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "flow.set('EC', msg.payload);\nconst payload = {\"EC\": msg.payload};\nreturn {\n    payload\n};",
         "outputs": 1,
@@ -568,14 +552,14 @@
         "y": 320,
         "wires": [
             [
-                "baa992846d2a1420"
+                "5c263ae3ba374904"
             ]
         ]
     },
     {
-        "id": "68807e3f4685d640",
+        "id": "93aabdbf3721c319",
         "type": "ezo",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "RTD",
         "address": 3,
         "customAddr": false,
@@ -586,14 +570,14 @@
         "y": 400,
         "wires": [
             [
-                "f550e4ab9524113b"
+                "7b09dc6748c31c63"
             ]
         ]
     },
     {
-        "id": "f550e4ab9524113b",
+        "id": "7b09dc6748c31c63",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "flow.set('RTD', msg.payload);\nconst payload = {\"RTD\": msg.payload};\nreturn {\n    payload\n};",
         "outputs": 1,
@@ -605,14 +589,14 @@
         "y": 400,
         "wires": [
             [
-                "baa992846d2a1420"
+                "5c263ae3ba374904"
             ]
         ]
     },
     {
-        "id": "baa992846d2a1420",
+        "id": "5c263ae3ba374904",
         "type": "influxdb out",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "influxdb": "7fd8de0767b7e3f4",
         "name": "",
         "measurement": "data_pwo",
@@ -623,34 +607,35 @@
         "retentionPolicyV18Flux": "",
         "org": "organisation",
         "bucket": "bucket",
-        "x": 860,
+        "x": 980,
         "y": 260,
         "wires": []
     },
     {
-        "id": "0eba585710928ae8",
+        "id": "303cc86a83eb8d92",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
-        "func": "msg = {\n    \"pH\": flow.get('pH'),\n    \"DO\": flow.get('DO'),\n    \"EC\": flow.get('EC'),\n    \"RTD\": flow.get('RTD'),\n    \"Ambient\": flow.get('Ambient')\n}\nflow.set('message1', msg);\nreturn msg;",
+        "func": "payload = {\n    \"pH\": flow.get('pH'),\n    \"DO\": flow.get('DO'),\n    \"EC\": flow.get('EC'),\n    \"RTD\": flow.get('RTD'),\n    \"deviceId\": msg.payload.trim()\n}\nflow.set('message1', payload);\nflow.set('deviceID', msg.payload.trim());\n\nreturn {\n    payload\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
+        "x": 920,
         "y": 160,
         "wires": [
             [
-                "b99ffb0dcf83e3a4",
-                "16862faab976f7d3"
+                "9bfe148107b407b1",
+                "9da84cee0973677b",
+                "07c45e41519286d1"
             ]
         ]
     },
     {
-        "id": "16862faab976f7d3",
+        "id": "9da84cee0973677b",
         "type": "ui_switch",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "label": "SendOne",
         "tooltip": "",
@@ -677,14 +662,14 @@
         "y": 640,
         "wires": [
             [
-                "bfe5294b949b10f8"
+                "b6e7a1906f9e9e3d"
             ]
         ]
     },
     {
-        "id": "7efaeb348549bb48",
+        "id": "250932e2152f2ec5",
         "type": "http request",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "create_author",
         "method": "GET",
         "ret": "txt",
@@ -699,14 +684,14 @@
         "y": 800,
         "wires": [
             [
-                "e564f358e70a7ad3"
+                "179996b6e388ed25"
             ]
         ]
     },
     {
-        "id": "f0411041d13bc19a",
+        "id": "91b4900694666f9b",
         "type": "inject",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "Trigger",
         "props": [
             {
@@ -724,14 +709,14 @@
         "y": 660,
         "wires": [
             [
-                "7efaeb348549bb48"
+                "250932e2152f2ec5"
             ]
         ]
     },
     {
-        "id": "85cdc823d6677253",
+        "id": "1d1a33e3998f5416",
         "type": "debug",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -746,9 +731,9 @@
         "wires": []
     },
     {
-        "id": "e564f358e70a7ad3",
+        "id": "179996b6e388ed25",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('address1', msg.address);\nflow.set('author1', msg.author);\nreturn msg;\n",
         "outputs": 1,
@@ -760,15 +745,15 @@
         "y": 800,
         "wires": [
             [
-                "85cdc823d6677253",
-                "55d4f2121d57a7d7"
+                "1d1a33e3998f5416",
+                "6b9457f10b73558b"
             ]
         ]
     },
     {
-        "id": "817b20c95c55e8ec",
+        "id": "3e6fbdaab37a1c6f",
         "type": "http request",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "create_subscriber",
         "method": "POST",
         "ret": "txt",
@@ -783,14 +768,14 @@
         "y": 920,
         "wires": [
             [
-                "7818da205812dc0a"
+                "e81d133e26abf396"
             ]
         ]
     },
     {
-        "id": "da740eae9e9a6f23",
+        "id": "62b52a47aed3e5fd",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "\nconst a = flow.get('address1');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\n\nreturn msg;",
         "outputs": 1,
@@ -802,14 +787,14 @@
         "y": 920,
         "wires": [
             [
-                "817b20c95c55e8ec"
+                "3e6fbdaab37a1c6f"
             ]
         ]
     },
     {
-        "id": "a86960cbed5b5b48",
+        "id": "5474dc9fd8986447",
         "type": "inject",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "Trigger",
         "props": [
             {
@@ -827,14 +812,14 @@
         "y": 900,
         "wires": [
             [
-                "da740eae9e9a6f23"
+                "62b52a47aed3e5fd"
             ]
         ]
     },
     {
-        "id": "7818da205812dc0a",
+        "id": "e81d133e26abf396",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('subscription1', msg.subscriber);\nreturn msg;",
         "outputs": 1,
@@ -846,15 +831,15 @@
         "y": 880,
         "wires": [
             [
-                "85cdc823d6677253",
-                "c74d4e0b84b0e6f7"
+                "1d1a33e3998f5416",
+                "b578aee833b76778"
             ]
         ]
     },
     {
-        "id": "a6362c52a72acd66",
+        "id": "d7f48d0b472c8c61",
         "type": "http request",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "sendOne",
         "method": "POST",
         "ret": "txt",
@@ -869,14 +854,14 @@
         "y": 1020,
         "wires": [
             [
-                "6bedd4886b283b21"
+                "ef1f627f1a262801"
             ]
         ]
     },
     {
-        "id": "bfe5294b949b10f8",
+        "id": "b6e7a1906f9e9e3d",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "if(msg.payload){\nconst a = flow.get('address1');\nconst b = flow.get('author1');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\nmsg.Author = encodeURI(JSON.stringify(b));\nmsg.payload = flow.get('message1');\n\nreturn msg;\n} else {\n    return;\n}",
         "outputs": 1,
@@ -888,14 +873,14 @@
         "y": 1040,
         "wires": [
             [
-                "a6362c52a72acd66"
+                "d7f48d0b472c8c61"
             ]
         ]
     },
     {
-        "id": "0e16d8b05a469f92",
+        "id": "4e87115b0cdee371",
         "type": "inject",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "Trigger",
         "props": [
             {
@@ -913,14 +898,14 @@
         "y": 1020,
         "wires": [
             [
-                "bfe5294b949b10f8"
+                "b6e7a1906f9e9e3d"
             ]
         ]
     },
     {
-        "id": "6bedd4886b283b21",
+        "id": "ef1f627f1a262801",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('address1', msg.address);\nflow.set('author1', msg.author);\nreturn msg;",
         "outputs": 1,
@@ -932,15 +917,15 @@
         "y": 960,
         "wires": [
             [
-                "85cdc823d6677253",
-                "1895458743aa2ae9"
+                "1d1a33e3998f5416",
+                "9b5a0a9b8801e088"
             ]
         ]
     },
     {
-        "id": "307751daaaefb47d",
+        "id": "9786b5c202a28a0c",
         "type": "inject",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "Trigger",
         "props": [
             {
@@ -958,14 +943,14 @@
         "y": 1160,
         "wires": [
             [
-                "30f66050b3dc075f"
+                "6446c874fe394b59"
             ]
         ]
     },
     {
-        "id": "30f66050b3dc075f",
+        "id": "6446c874fe394b59",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "\nconst a = flow.get('subscription1');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Subscriber = encodeURI(JSON.stringify(a));\n\nreturn msg;",
         "outputs": 1,
@@ -977,14 +962,14 @@
         "y": 1160,
         "wires": [
             [
-                "93791074345e3d8a"
+                "fba347a0aa05a457"
             ]
         ]
     },
     {
-        "id": "93791074345e3d8a",
+        "id": "fba347a0aa05a457",
         "type": "http request",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "fetchAll",
         "method": "POST",
         "ret": "txt",
@@ -999,14 +984,14 @@
         "y": 1160,
         "wires": [
             [
-                "3a16d3bba8e5f235"
+                "eb30e25cf77f9205"
             ]
         ]
     },
     {
-        "id": "3a16d3bba8e5f235",
+        "id": "eb30e25cf77f9205",
         "type": "function",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nreturn msg;",
         "outputs": 1,
@@ -1018,15 +1003,15 @@
         "y": 1100,
         "wires": [
             [
-                "29dd51ca5d307a0b",
-                "85cdc823d6677253"
+                "ff62c35b956fba97",
+                "1d1a33e3998f5416"
             ]
         ]
     },
     {
-        "id": "2cedaff3baeff8c3",
+        "id": "ddafd72cd882c14d",
         "type": "ui_button",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "group": "f283a15fbccfb5ed",
         "order": 1,
@@ -1047,14 +1032,14 @@
         "y": 820,
         "wires": [
             [
-                "da740eae9e9a6f23"
+                "62b52a47aed3e5fd"
             ]
         ]
     },
     {
-        "id": "3ccb4ccd59135651",
+        "id": "6258c3ab811be546",
         "type": "ui_button",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "group": "56abe939f4d7bb70",
         "order": 1,
@@ -1075,20 +1060,20 @@
         "y": 1120,
         "wires": [
             [
-                "30f66050b3dc075f"
+                "6446c874fe394b59"
             ]
         ]
     },
     {
-        "id": "29dd51ca5d307a0b",
+        "id": "ff62c35b956fba97",
         "type": "ui_template",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "group": "56abe939f4d7bb70",
         "name": "",
         "order": 1,
         "width": "18",
         "height": "11",
-        "format": "<div  style=\"width: 100%;\">\n    <table cellpadding=\"10\" style=\"width: 100%; border-width: 1px 0;\">\n        <thead>\n            <tr>\n                <th>Ambient hum</th>\n                <th>Ambient temp</th>\n                <th>DO</th>\n                <th>EC</th>\n                <th>RTD</th>\n                <th>pH</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"data in msg.data\">\n                <td style=\"text-align: center;\">{{data.Ambient.Humidity}}</td>\n                <td style=\"text-align: center;\">{{data.Ambient.Temperature}}</td>\n                <td style=\"text-align: center;\">{{data.DO}}</td>\n                <td style=\"text-align: center;\">{{data.EC}}</td>\n                <td style=\"text-align: center;\">{{data.RTD}}</td>\n                <td style=\"text-align: center;\">{{data.pH}}</td>\n            </tr>\n        </tbody>\n    </table>\n</div>",
+        "format": "<div  style=\"width: 100%;\">\n    <table cellpadding=\"10\" style=\"width: 100%; border-width: 1px 0;\">\n        <thead>\n            <tr>\n                <th>DO</th>\n                <th>EC</th>\n                <th>RTD</th>\n                <th>pH</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"data in msg.data\">\n                <td style=\"text-align: center;\">{{data.DO}}</td>\n                <td style=\"text-align: center;\">{{data.EC}}</td>\n                <td style=\"text-align: center;\">{{data.RTD}}</td>\n                <td style=\"text-align: center;\">{{data.pH}}</td>\n            </tr>\n        </tbody>\n    </table>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -1101,9 +1086,9 @@
         ]
     },
     {
-        "id": "c1a9d5032d6e212e",
+        "id": "c604d612a480e4a9",
         "type": "ui_button",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "name": "",
         "group": "7d02bb21dff02934",
         "order": 1,
@@ -1124,14 +1109,14 @@
         "y": 740,
         "wires": [
             [
-                "7efaeb348549bb48"
+                "250932e2152f2ec5"
             ]
         ]
     },
     {
-        "id": "55d4f2121d57a7d7",
+        "id": "6b9457f10b73558b",
         "type": "ui_text",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "group": "7d02bb21dff02934",
         "order": 1,
         "width": 0,
@@ -1146,9 +1131,9 @@
         "wires": []
     },
     {
-        "id": "c74d4e0b84b0e6f7",
+        "id": "b578aee833b76778",
         "type": "ui_text",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "group": "f283a15fbccfb5ed",
         "order": 2,
         "width": 0,
@@ -1163,9 +1148,9 @@
         "wires": []
     },
     {
-        "id": "1895458743aa2ae9",
+        "id": "9b5a0a9b8801e088",
         "type": "ui_text",
-        "z": "cf029201dc01b7cc",
+        "z": "3487cbe2e148f9a5",
         "group": "5a5a7c4ba42a4a6a",
         "order": 2,
         "width": 0,
@@ -1180,9 +1165,49 @@
         "wires": []
     },
     {
-        "id": "33eba579597c2b13",
+        "id": "f13c1e6d3f0ff1fd",
+        "type": "exec",
+        "z": "3487cbe2e148f9a5",
+        "command": "hostname",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 740,
+        "y": 160,
+        "wires": [
+            [
+                "303cc86a83eb8d92"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "07c45e41519286d1",
+        "type": "mqtt out",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "topic": "/pwo/devices/{{msg.payload.deviceId}}",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "afc0b7c9ed2d83a7",
+        "x": 1290,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8efafa64c20ba59d",
         "type": "ui_button",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "group": "47ce9eac95b62334",
         "order": 1,
@@ -1203,14 +1228,14 @@
         "y": 140,
         "wires": [
             [
-                "223797dad6001e28"
+                "cea115320683064e"
             ]
         ]
     },
     {
-        "id": "b709cff679e978cd",
+        "id": "d1f8929d58b31e68",
         "type": "ui_button",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "group": "47ce9eac95b62334",
         "order": 2,
@@ -1231,14 +1256,14 @@
         "y": 240,
         "wires": [
             [
-                "1ac290e421718a72"
+                "ab3822eef1798113"
             ]
         ]
     },
     {
-        "id": "223797dad6001e28",
+        "id": "cea115320683064e",
         "type": "http request",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "Servo - On",
         "method": "GET",
         "ret": "txt",
@@ -1253,14 +1278,14 @@
         "y": 140,
         "wires": [
             [
-                "071c074fa661f71c"
+                "c26cb6eb5543d1de"
             ]
         ]
     },
     {
-        "id": "1ac290e421718a72",
+        "id": "ab3822eef1798113",
         "type": "http request",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "Servo - Off",
         "method": "GET",
         "ret": "txt",
@@ -1275,14 +1300,14 @@
         "y": 260,
         "wires": [
             [
-                "b2bfce73b560474d"
+                "e21628d21b56d3bc"
             ]
         ]
     },
     {
-        "id": "071c074fa661f71c",
+        "id": "c26cb6eb5543d1de",
         "type": "function",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('message2', msg);\nreturn msg;",
         "outputs": 1,
@@ -1294,14 +1319,14 @@
         "y": 160,
         "wires": [
             [
-                "c3d99186ab31da81"
+                "212f348cb0720de7"
             ]
         ]
     },
     {
-        "id": "b2bfce73b560474d",
+        "id": "e21628d21b56d3bc",
         "type": "function",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('message2', msg);\nreturn msg;",
         "outputs": 1,
@@ -1313,14 +1338,14 @@
         "y": 280,
         "wires": [
             [
-                "c3d99186ab31da81"
+                "212f348cb0720de7"
             ]
         ]
     },
     {
-        "id": "c3d99186ab31da81",
+        "id": "212f348cb0720de7",
         "type": "ui_switch",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "label": "SendOne",
         "tooltip": "",
@@ -1347,14 +1372,14 @@
         "y": 380,
         "wires": [
             [
-                "e7aa0bc88e1d8390"
+                "5b7738fe10445345"
             ]
         ]
     },
     {
-        "id": "7986639ef4ec3f2c",
+        "id": "7e5f1d83d2bcaf1d",
         "type": "http request",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "create_author",
         "method": "GET",
         "ret": "txt",
@@ -1369,14 +1394,14 @@
         "y": 540,
         "wires": [
             [
-                "a504c70767811007"
+                "2f88026cd1af0d26"
             ]
         ]
     },
     {
-        "id": "da3e8561b25fffa8",
+        "id": "787a6b070bc53d78",
         "type": "inject",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "Trigger",
         "props": [
             {
@@ -1394,14 +1419,14 @@
         "y": 400,
         "wires": [
             [
-                "7986639ef4ec3f2c"
+                "7e5f1d83d2bcaf1d"
             ]
         ]
     },
     {
-        "id": "1abf18b2c4649cad",
+        "id": "62c8f19f41439263",
         "type": "debug",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1416,9 +1441,9 @@
         "wires": []
     },
     {
-        "id": "a504c70767811007",
+        "id": "2f88026cd1af0d26",
         "type": "function",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('address2', msg.address);\nflow.set('author2', msg.author);\nreturn msg;\n",
         "outputs": 1,
@@ -1430,15 +1455,15 @@
         "y": 540,
         "wires": [
             [
-                "1abf18b2c4649cad",
-                "f243dd7b43a71007"
+                "62c8f19f41439263",
+                "a5f1db088f416686"
             ]
         ]
     },
     {
-        "id": "cb227af09f98bfba",
+        "id": "3a987322095f23ac",
         "type": "http request",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "create_subscriber",
         "method": "POST",
         "ret": "txt",
@@ -1453,14 +1478,14 @@
         "y": 660,
         "wires": [
             [
-                "e4e365f32ad733a4"
+                "e577bd4142c4d2dd"
             ]
         ]
     },
     {
-        "id": "d04aab0fcbda9243",
+        "id": "77eac949f619db46",
         "type": "function",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "func": "\nconst a = flow.get('address2');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\n\nreturn msg;",
         "outputs": 1,
@@ -1472,14 +1497,14 @@
         "y": 660,
         "wires": [
             [
-                "cb227af09f98bfba"
+                "3a987322095f23ac"
             ]
         ]
     },
     {
-        "id": "190f94e5820de4d9",
+        "id": "1458a381db516400",
         "type": "inject",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "Trigger",
         "props": [
             {
@@ -1497,14 +1522,14 @@
         "y": 640,
         "wires": [
             [
-                "d04aab0fcbda9243"
+                "77eac949f619db46"
             ]
         ]
     },
     {
-        "id": "e4e365f32ad733a4",
+        "id": "e577bd4142c4d2dd",
         "type": "function",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('subscription2', msg.subscriber);\nreturn msg;",
         "outputs": 1,
@@ -1516,15 +1541,15 @@
         "y": 620,
         "wires": [
             [
-                "1abf18b2c4649cad",
-                "850d6088613f2529"
+                "62c8f19f41439263",
+                "491679c7072e2009"
             ]
         ]
     },
     {
-        "id": "093a1568b1a927bc",
+        "id": "b82064242a03c32c",
         "type": "http request",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "sendOne",
         "method": "POST",
         "ret": "txt",
@@ -1539,14 +1564,14 @@
         "y": 760,
         "wires": [
             [
-                "c77e8de65731004c"
+                "856184717be71a0b"
             ]
         ]
     },
     {
-        "id": "e7aa0bc88e1d8390",
+        "id": "5b7738fe10445345",
         "type": "function",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "func": "if(msg.payload){\nconst a = flow.get('address2');\nconst b = flow.get('author2');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\nmsg.Author = encodeURI(JSON.stringify(b));\nmsg.payload = flow.get('message2');\n\nreturn msg;\n} else {\n    return;\n}",
         "outputs": 1,
@@ -1558,14 +1583,14 @@
         "y": 780,
         "wires": [
             [
-                "093a1568b1a927bc"
+                "b82064242a03c32c"
             ]
         ]
     },
     {
-        "id": "4cf484a6e55a651a",
+        "id": "44412974e77cc7a4",
         "type": "inject",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "Trigger",
         "props": [
             {
@@ -1583,14 +1608,14 @@
         "y": 760,
         "wires": [
             [
-                "e7aa0bc88e1d8390"
+                "5b7738fe10445345"
             ]
         ]
     },
     {
-        "id": "c77e8de65731004c",
+        "id": "856184717be71a0b",
         "type": "function",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('address2', msg.address);\nflow.set('author2', msg.author);\nreturn msg;",
         "outputs": 1,
@@ -1602,15 +1627,15 @@
         "y": 700,
         "wires": [
             [
-                "1abf18b2c4649cad",
-                "cabc802e0bae21b2"
+                "62c8f19f41439263",
+                "3fffc0c1b5f7d477"
             ]
         ]
     },
     {
-        "id": "8df88b747a343fc2",
+        "id": "13d2a17605474225",
         "type": "inject",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "Trigger",
         "props": [
             {
@@ -1628,14 +1653,14 @@
         "y": 900,
         "wires": [
             [
-                "f99547daaa85077b"
+                "6934d576366821dd"
             ]
         ]
     },
     {
-        "id": "f99547daaa85077b",
+        "id": "6934d576366821dd",
         "type": "function",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "func": "\nconst a = flow.get('subscription2');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Subscriber = encodeURI(JSON.stringify(a));\n\nreturn msg;",
         "outputs": 1,
@@ -1647,14 +1672,14 @@
         "y": 900,
         "wires": [
             [
-                "01820db778bb9169"
+                "40070f75fcb39127"
             ]
         ]
     },
     {
-        "id": "01820db778bb9169",
+        "id": "40070f75fcb39127",
         "type": "http request",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "fetchAll",
         "method": "POST",
         "ret": "txt",
@@ -1669,14 +1694,14 @@
         "y": 900,
         "wires": [
             [
-                "21b80d0503f80160"
+                "ccd74968037f7545"
             ]
         ]
     },
     {
-        "id": "21b80d0503f80160",
+        "id": "ccd74968037f7545",
         "type": "function",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nreturn msg;",
         "outputs": 1,
@@ -1688,15 +1713,15 @@
         "y": 840,
         "wires": [
             [
-                "f7f6569d65f9d8cb",
-                "1abf18b2c4649cad"
+                "8bd4448a6d5c9d55",
+                "62c8f19f41439263"
             ]
         ]
     },
     {
-        "id": "b93e4181b86f0908",
+        "id": "dde1558c2f36b659",
         "type": "ui_button",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "group": "7c79b20bbf6902c0",
         "order": 1,
@@ -1717,14 +1742,14 @@
         "y": 560,
         "wires": [
             [
-                "d04aab0fcbda9243"
+                "77eac949f619db46"
             ]
         ]
     },
     {
-        "id": "b7d447941b0b76a4",
+        "id": "644e053a96f3fb28",
         "type": "ui_button",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "group": "8d59eb3d1caa15a0",
         "order": 1,
@@ -1745,14 +1770,14 @@
         "y": 860,
         "wires": [
             [
-                "f99547daaa85077b"
+                "6934d576366821dd"
             ]
         ]
     },
     {
-        "id": "f7f6569d65f9d8cb",
+        "id": "8bd4448a6d5c9d55",
         "type": "ui_template",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "group": "8d59eb3d1caa15a0",
         "name": "",
         "order": 1,
@@ -1771,9 +1796,9 @@
         ]
     },
     {
-        "id": "615ab62dfc284d12",
+        "id": "5364ceb29b95eaeb",
         "type": "ui_button",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "name": "",
         "group": "ce71281362f1d36b",
         "order": 1,
@@ -1794,14 +1819,14 @@
         "y": 480,
         "wires": [
             [
-                "7986639ef4ec3f2c"
+                "7e5f1d83d2bcaf1d"
             ]
         ]
     },
     {
-        "id": "f243dd7b43a71007",
+        "id": "a5f1db088f416686",
         "type": "ui_text",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "group": "ce71281362f1d36b",
         "order": 1,
         "width": 0,
@@ -1816,9 +1841,9 @@
         "wires": []
     },
     {
-        "id": "850d6088613f2529",
+        "id": "491679c7072e2009",
         "type": "ui_text",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "group": "7c79b20bbf6902c0",
         "order": 2,
         "width": 0,
@@ -1833,9 +1858,9 @@
         "wires": []
     },
     {
-        "id": "cabc802e0bae21b2",
+        "id": "3fffc0c1b5f7d477",
         "type": "ui_text",
-        "z": "ccbccf54e46ce614",
+        "z": "56c875fd8b7188a8",
         "group": "f2caa41618aca1e3",
         "order": 2,
         "width": 0,
@@ -1850,9 +1875,9 @@
         "wires": []
     },
     {
-        "id": "6a284880be4e96c7",
+        "id": "6bb481425e694ff9",
         "type": "http request",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "Water Pump - On",
         "method": "GET",
         "ret": "txt",
@@ -1867,14 +1892,14 @@
         "y": 120,
         "wires": [
             [
-                "a456d90d65698261"
+                "0597e26e8014ec1c"
             ]
         ]
     },
     {
-        "id": "6e413b76e2244cc5",
+        "id": "8ed2de884e274985",
         "type": "http request",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "Water Pump - Off",
         "method": "GET",
         "ret": "txt",
@@ -1889,14 +1914,14 @@
         "y": 220,
         "wires": [
             [
-                "156a23fcf27e2cf8"
+                "e2ddd1ab389f2ea4"
             ]
         ]
     },
     {
-        "id": "1a2095b6b07f660e",
+        "id": "fbaaabe78042f574",
         "type": "ui_button",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "group": "6b407f09ff61b6d7",
         "order": 1,
@@ -1917,14 +1942,14 @@
         "y": 100,
         "wires": [
             [
-                "6a284880be4e96c7"
+                "6bb481425e694ff9"
             ]
         ]
     },
     {
-        "id": "efec1692f586c53f",
+        "id": "6aa05135a4080bdf",
         "type": "ui_button",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "group": "6b407f09ff61b6d7",
         "order": 2,
@@ -1945,14 +1970,14 @@
         "y": 220,
         "wires": [
             [
-                "6e413b76e2244cc5"
+                "8ed2de884e274985"
             ]
         ]
     },
     {
-        "id": "a456d90d65698261",
+        "id": "0597e26e8014ec1c",
         "type": "function",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('message3', msg);\nreturn msg;",
         "outputs": 1,
@@ -1964,14 +1989,14 @@
         "y": 120,
         "wires": [
             [
-                "812ede9a6e802036"
+                "10915c948f86a59f"
             ]
         ]
     },
     {
-        "id": "156a23fcf27e2cf8",
+        "id": "e2ddd1ab389f2ea4",
         "type": "function",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('message3', msg);\nreturn msg;",
         "outputs": 1,
@@ -1983,14 +2008,14 @@
         "y": 220,
         "wires": [
             [
-                "812ede9a6e802036"
+                "10915c948f86a59f"
             ]
         ]
     },
     {
-        "id": "812ede9a6e802036",
+        "id": "10915c948f86a59f",
         "type": "ui_switch",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "label": "SendOne",
         "tooltip": "",
@@ -2017,14 +2042,14 @@
         "y": 360,
         "wires": [
             [
-                "7c04e5029ddb009f"
+                "438801fcc72e999a"
             ]
         ]
     },
     {
-        "id": "9739a49f5443d278",
+        "id": "9451ec8024aaf041",
         "type": "http request",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "create_author",
         "method": "GET",
         "ret": "txt",
@@ -2039,14 +2064,14 @@
         "y": 500,
         "wires": [
             [
-                "d095b7747769e7a4"
+                "c0fb01c7a8ad0cb5"
             ]
         ]
     },
     {
-        "id": "357ec479d5d937b6",
+        "id": "59b717dd1317dec2",
         "type": "inject",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "Trigger",
         "props": [
             {
@@ -2064,14 +2089,14 @@
         "y": 360,
         "wires": [
             [
-                "9739a49f5443d278"
+                "9451ec8024aaf041"
             ]
         ]
     },
     {
-        "id": "4236c018c128a1e6",
+        "id": "41ac1172d4e6f596",
         "type": "debug",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -2086,9 +2111,9 @@
         "wires": []
     },
     {
-        "id": "d095b7747769e7a4",
+        "id": "c0fb01c7a8ad0cb5",
         "type": "function",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('address3', msg.address);\nflow.set('author3', msg.author);\nreturn msg;\n",
         "outputs": 1,
@@ -2100,15 +2125,15 @@
         "y": 500,
         "wires": [
             [
-                "4236c018c128a1e6",
-                "6fff42bc2f6e9fe5"
+                "41ac1172d4e6f596",
+                "28dec0a2b766788a"
             ]
         ]
     },
     {
-        "id": "2d86e0cecf3a8bf9",
+        "id": "6dd3816a263e5888",
         "type": "http request",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "create_subscriber",
         "method": "POST",
         "ret": "txt",
@@ -2123,14 +2148,14 @@
         "y": 620,
         "wires": [
             [
-                "7b938bd4ccfb6282"
+                "ca609f1b6820dfae"
             ]
         ]
     },
     {
-        "id": "1a7cfab1f987f908",
+        "id": "56e61f921b9923b4",
         "type": "function",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "func": "\nconst a = flow.get('address3');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\n\nreturn msg;",
         "outputs": 1,
@@ -2142,14 +2167,14 @@
         "y": 620,
         "wires": [
             [
-                "2d86e0cecf3a8bf9"
+                "6dd3816a263e5888"
             ]
         ]
     },
     {
-        "id": "8117b8a99cdc6d36",
+        "id": "2276c315686e97be",
         "type": "inject",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "Trigger",
         "props": [
             {
@@ -2167,14 +2192,14 @@
         "y": 600,
         "wires": [
             [
-                "1a7cfab1f987f908"
+                "56e61f921b9923b4"
             ]
         ]
     },
     {
-        "id": "7b938bd4ccfb6282",
+        "id": "ca609f1b6820dfae",
         "type": "function",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('subscription3', msg.subscriber);\nreturn msg;",
         "outputs": 1,
@@ -2186,15 +2211,15 @@
         "y": 580,
         "wires": [
             [
-                "4236c018c128a1e6",
-                "9d75f769dbf39304"
+                "41ac1172d4e6f596",
+                "add1fa4b7ce92b73"
             ]
         ]
     },
     {
-        "id": "1725a426c1bfcb32",
+        "id": "7b5891135452d821",
         "type": "http request",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "sendOne",
         "method": "POST",
         "ret": "txt",
@@ -2209,14 +2234,14 @@
         "y": 720,
         "wires": [
             [
-                "af2a9d908031608a"
+                "609b6c034aa55d32"
             ]
         ]
     },
     {
-        "id": "7c04e5029ddb009f",
+        "id": "438801fcc72e999a",
         "type": "function",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "func": "if(msg.payload){\nconst a = flow.get('address3');\nconst b = flow.get('author3');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\nmsg.Author = encodeURI(JSON.stringify(b));\nmsg.payload = flow.get('message3');\n\nreturn msg;\n} else {\n    return;\n}",
         "outputs": 1,
@@ -2228,14 +2253,14 @@
         "y": 740,
         "wires": [
             [
-                "1725a426c1bfcb32"
+                "7b5891135452d821"
             ]
         ]
     },
     {
-        "id": "5d66e0da14542552",
+        "id": "3aaa46da03dad520",
         "type": "inject",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "Trigger",
         "props": [
             {
@@ -2253,14 +2278,14 @@
         "y": 720,
         "wires": [
             [
-                "7c04e5029ddb009f"
+                "438801fcc72e999a"
             ]
         ]
     },
     {
-        "id": "af2a9d908031608a",
+        "id": "609b6c034aa55d32",
         "type": "function",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('address3', msg.address);\nflow.set('author3', msg.author);\nreturn msg;",
         "outputs": 1,
@@ -2272,15 +2297,15 @@
         "y": 660,
         "wires": [
             [
-                "4236c018c128a1e6",
-                "d5308fdd93593a3e"
+                "41ac1172d4e6f596",
+                "53eca8d5fc4f1158"
             ]
         ]
     },
     {
-        "id": "5f4548f869469167",
+        "id": "7d43f6bd8c1d20ea",
         "type": "inject",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "Trigger",
         "props": [
             {
@@ -2298,14 +2323,14 @@
         "y": 860,
         "wires": [
             [
-                "f992094c2d5adc53"
+                "f52e16fb7c8dc517"
             ]
         ]
     },
     {
-        "id": "f992094c2d5adc53",
+        "id": "f52e16fb7c8dc517",
         "type": "function",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "func": "\nconst a = flow.get('subscription3');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Subscriber = encodeURI(JSON.stringify(a));\n\nreturn msg;",
         "outputs": 1,
@@ -2317,14 +2342,14 @@
         "y": 860,
         "wires": [
             [
-                "76fe0716f4f91be0"
+                "fffbf3717a0390ae"
             ]
         ]
     },
     {
-        "id": "76fe0716f4f91be0",
+        "id": "fffbf3717a0390ae",
         "type": "http request",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "fetchAll",
         "method": "POST",
         "ret": "txt",
@@ -2339,14 +2364,14 @@
         "y": 860,
         "wires": [
             [
-                "b1e289a3017f84d9"
+                "39d061bfd478d14e"
             ]
         ]
     },
     {
-        "id": "b1e289a3017f84d9",
+        "id": "39d061bfd478d14e",
         "type": "function",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nreturn msg;",
         "outputs": 1,
@@ -2358,15 +2383,15 @@
         "y": 800,
         "wires": [
             [
-                "d6baf20b11e6e7f8",
-                "4236c018c128a1e6"
+                "7d6d66901cb60c89",
+                "41ac1172d4e6f596"
             ]
         ]
     },
     {
-        "id": "08cf88b062aca260",
+        "id": "cdd4a285d0c9fd07",
         "type": "ui_button",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "group": "8e587e80f59c40e3",
         "order": 1,
@@ -2387,14 +2412,14 @@
         "y": 520,
         "wires": [
             [
-                "1a7cfab1f987f908"
+                "56e61f921b9923b4"
             ]
         ]
     },
     {
-        "id": "d9879afe78cd4cad",
+        "id": "b5b99011c93fd89c",
         "type": "ui_button",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "group": "675d0988817c9237",
         "order": 1,
@@ -2415,14 +2440,14 @@
         "y": 820,
         "wires": [
             [
-                "f992094c2d5adc53"
+                "f52e16fb7c8dc517"
             ]
         ]
     },
     {
-        "id": "d6baf20b11e6e7f8",
+        "id": "7d6d66901cb60c89",
         "type": "ui_template",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "group": "675d0988817c9237",
         "name": "",
         "order": 1,
@@ -2441,9 +2466,9 @@
         ]
     },
     {
-        "id": "2daad62e8b5bf93b",
+        "id": "2f6a432302c9b72b",
         "type": "ui_button",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "name": "",
         "group": "8855518db3921970",
         "order": 1,
@@ -2464,14 +2489,14 @@
         "y": 440,
         "wires": [
             [
-                "9739a49f5443d278"
+                "9451ec8024aaf041"
             ]
         ]
     },
     {
-        "id": "6fff42bc2f6e9fe5",
+        "id": "28dec0a2b766788a",
         "type": "ui_text",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "group": "8855518db3921970",
         "order": 2,
         "width": 0,
@@ -2486,9 +2511,9 @@
         "wires": []
     },
     {
-        "id": "9d75f769dbf39304",
+        "id": "add1fa4b7ce92b73",
         "type": "ui_text",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "group": "8e587e80f59c40e3",
         "order": 2,
         "width": 0,
@@ -2503,9 +2528,9 @@
         "wires": []
     },
     {
-        "id": "d5308fdd93593a3e",
+        "id": "53eca8d5fc4f1158",
         "type": "ui_text",
-        "z": "52e83c2c3f6e16fb",
+        "z": "fab444a69628649e",
         "group": "7d50503f59ce7301",
         "order": 2,
         "width": 0,
@@ -2520,9 +2545,9 @@
         "wires": []
     },
     {
-        "id": "c4b9eb2a40aeb183",
+        "id": "1d7f617204f1f637",
         "type": "debug",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -2532,14 +2557,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 750,
-        "y": 220,
+        "x": 770,
+        "y": 280,
         "wires": []
     },
     {
-        "id": "2e0fe10ffd82d979",
+        "id": "70900c79698fd9b6",
         "type": "http in",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "url": "/sensor",
         "method": "post",
@@ -2549,15 +2574,15 @@
         "y": 140,
         "wires": [
             [
-                "0d94a9cfe67345db",
-                "14febede39e41db2"
+                "e3f222bfe4ff9c4e",
+                "74ad16c5ba9c719b"
             ]
         ]
     },
     {
-        "id": "0d94a9cfe67345db",
+        "id": "e3f222bfe4ff9c4e",
         "type": "http response",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "statusCode": "",
         "headers": {},
@@ -2566,11 +2591,11 @@
         "wires": []
     },
     {
-        "id": "14febede39e41db2",
+        "id": "74ad16c5ba9c719b",
         "type": "function",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
-        "func": "const payload = {\"Liters\": JSON.parse(msg.payload).Liters};\nflow.set('message4', payload);\nreturn {\n    payload\n};\n",
+        "func": "const payload = {\n    \"Liters\": JSON.parse(msg.payload).Liters,\n     \"deviceId\": flow.get('deviceID')\n    \n};\nflow.set('message4', payload);\nreturn {\n    payload\n};\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2580,23 +2605,24 @@
         "y": 200,
         "wires": [
             [
-                "c4b9eb2a40aeb183",
-                "eab2c011179b0dca",
-                "07c214dd5b288486"
+                "1d7f617204f1f637",
+                "9630db540f28fefb",
+                "536af16498f33fce",
+                "33bdbd3883535da1"
             ]
         ]
     },
     {
-        "id": "eab2c011179b0dca",
+        "id": "9630db540f28fefb",
         "type": "influxdb out",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "influxdb": "7fd8de0767b7e3f4",
         "name": "",
         "measurement": "data_pwo",
         "precision": "",
         "retentionPolicy": "",
         "database": "devices",
-        "precisionV18FluxV20": "ms",
+        "precisionV18FluxV20": "ns",
         "retentionPolicyV18Flux": "",
         "org": "organisation",
         "bucket": "bucket",
@@ -2605,9 +2631,9 @@
         "wires": []
     },
     {
-        "id": "07c214dd5b288486",
+        "id": "536af16498f33fce",
         "type": "ui_switch",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "label": "SendOne",
         "tooltip": "",
@@ -2634,14 +2660,14 @@
         "y": 420,
         "wires": [
             [
-                "ee01851543df2f4a"
+                "670d49d5b78d7458"
             ]
         ]
     },
     {
-        "id": "d9b02a0d42df7ed0",
+        "id": "799f394dd33dae46",
         "type": "http request",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "create_author",
         "method": "GET",
         "ret": "txt",
@@ -2656,14 +2682,14 @@
         "y": 680,
         "wires": [
             [
-                "2e4f41f22f3f4be9"
+                "45039fe078b7f107"
             ]
         ]
     },
     {
-        "id": "e3611902059556b5",
+        "id": "44c26640975b280d",
         "type": "inject",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "Trigger",
         "props": [
             {
@@ -2681,14 +2707,14 @@
         "y": 540,
         "wires": [
             [
-                "d9b02a0d42df7ed0"
+                "799f394dd33dae46"
             ]
         ]
     },
     {
-        "id": "234bb129a2f6e47a",
+        "id": "970257f2fb801f82",
         "type": "debug",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -2703,9 +2729,9 @@
         "wires": []
     },
     {
-        "id": "2e4f41f22f3f4be9",
+        "id": "45039fe078b7f107",
         "type": "function",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('address4', msg.address);\nflow.set('author4', msg.author);\nreturn msg;\n",
         "outputs": 1,
@@ -2717,15 +2743,15 @@
         "y": 680,
         "wires": [
             [
-                "234bb129a2f6e47a",
-                "d50776ce24c68599"
+                "970257f2fb801f82",
+                "bb6dfc293d1be6ca"
             ]
         ]
     },
     {
-        "id": "03ad873cd86d1192",
+        "id": "9f5f071f85a48e6a",
         "type": "http request",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "create_subscriber",
         "method": "POST",
         "ret": "txt",
@@ -2740,14 +2766,14 @@
         "y": 800,
         "wires": [
             [
-                "3a5232c5ca7d240c"
+                "cae597a16b034fb2"
             ]
         ]
     },
     {
-        "id": "5285fc014a43a56a",
+        "id": "500fa8d7c2ac4cc6",
         "type": "function",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "func": "\nconst a = flow.get('address4');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\n\nreturn msg;",
         "outputs": 1,
@@ -2759,14 +2785,14 @@
         "y": 800,
         "wires": [
             [
-                "03ad873cd86d1192"
+                "9f5f071f85a48e6a"
             ]
         ]
     },
     {
-        "id": "86aeed540d579eb6",
+        "id": "e781ea7ef06ecc7e",
         "type": "inject",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "Trigger",
         "props": [
             {
@@ -2784,14 +2810,14 @@
         "y": 780,
         "wires": [
             [
-                "5285fc014a43a56a"
+                "500fa8d7c2ac4cc6"
             ]
         ]
     },
     {
-        "id": "3a5232c5ca7d240c",
+        "id": "cae597a16b034fb2",
         "type": "function",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('subscription4', msg.subscriber);\nreturn msg;",
         "outputs": 1,
@@ -2803,15 +2829,15 @@
         "y": 760,
         "wires": [
             [
-                "234bb129a2f6e47a",
-                "f217253af806a2fd"
+                "970257f2fb801f82",
+                "9882f089432872d9"
             ]
         ]
     },
     {
-        "id": "fb22f8fd8e94aa12",
+        "id": "d1cb2775955720fd",
         "type": "http request",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "sendOne",
         "method": "POST",
         "ret": "txt",
@@ -2826,14 +2852,14 @@
         "y": 900,
         "wires": [
             [
-                "cc8c859e6d915670"
+                "97e187e60867e9ba"
             ]
         ]
     },
     {
-        "id": "ee01851543df2f4a",
+        "id": "670d49d5b78d7458",
         "type": "function",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "func": "if(msg.payload){\nconst a = flow.get('address4');\nconst b = flow.get('author4');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\nmsg.Author = encodeURI(JSON.stringify(b));\nmsg.payload = flow.get('message4');\n\nreturn msg;\n} else {\n    return;\n}",
         "outputs": 1,
@@ -2845,14 +2871,14 @@
         "y": 920,
         "wires": [
             [
-                "fb22f8fd8e94aa12"
+                "d1cb2775955720fd"
             ]
         ]
     },
     {
-        "id": "51876a5f596690d6",
+        "id": "999bfd3d979f6788",
         "type": "inject",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "Trigger",
         "props": [
             {
@@ -2870,14 +2896,14 @@
         "y": 900,
         "wires": [
             [
-                "ee01851543df2f4a"
+                "670d49d5b78d7458"
             ]
         ]
     },
     {
-        "id": "cc8c859e6d915670",
+        "id": "97e187e60867e9ba",
         "type": "function",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('address4', msg.address);\nflow.set('author4', msg.author);\nreturn msg;",
         "outputs": 1,
@@ -2889,15 +2915,15 @@
         "y": 840,
         "wires": [
             [
-                "234bb129a2f6e47a",
-                "eaf81c641656be6b"
+                "970257f2fb801f82",
+                "45c70c9c12a6669c"
             ]
         ]
     },
     {
-        "id": "3115f501c979fa67",
+        "id": "82317df6d062b4c9",
         "type": "inject",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "Trigger",
         "props": [
             {
@@ -2915,14 +2941,14 @@
         "y": 1040,
         "wires": [
             [
-                "2ffb1901b4528913"
+                "43079633e0b079ab"
             ]
         ]
     },
     {
-        "id": "2ffb1901b4528913",
+        "id": "43079633e0b079ab",
         "type": "function",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "func": "\nconst a = flow.get('subscription4');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Subscriber = encodeURI(JSON.stringify(a));\n\nreturn msg;",
         "outputs": 1,
@@ -2934,14 +2960,14 @@
         "y": 1040,
         "wires": [
             [
-                "f7e9ae0a71f1c77e"
+                "ebf41dbafe07db3f"
             ]
         ]
     },
     {
-        "id": "f7e9ae0a71f1c77e",
+        "id": "ebf41dbafe07db3f",
         "type": "http request",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "fetchAll",
         "method": "POST",
         "ret": "txt",
@@ -2956,14 +2982,14 @@
         "y": 1040,
         "wires": [
             [
-                "9860d979bb9e8bc1"
+                "7706417017a7521b"
             ]
         ]
     },
     {
-        "id": "9860d979bb9e8bc1",
+        "id": "7706417017a7521b",
         "type": "function",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nreturn msg;",
         "outputs": 1,
@@ -2975,15 +3001,15 @@
         "y": 980,
         "wires": [
             [
-                "2a13bf4e240ca636",
-                "234bb129a2f6e47a"
+                "3119c2825b27d44e",
+                "970257f2fb801f82"
             ]
         ]
     },
     {
-        "id": "2e1f54f0ecc4cc5d",
+        "id": "5323910da4578a3d",
         "type": "ui_button",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "group": "220284a378441ba7",
         "order": 1,
@@ -3004,14 +3030,14 @@
         "y": 700,
         "wires": [
             [
-                "5285fc014a43a56a"
+                "500fa8d7c2ac4cc6"
             ]
         ]
     },
     {
-        "id": "d9cc71f05e7db4ab",
+        "id": "a3505a2e66a29c5b",
         "type": "ui_button",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "group": "15ec53870afa5429",
         "order": 1,
@@ -3032,14 +3058,14 @@
         "y": 1000,
         "wires": [
             [
-                "2ffb1901b4528913"
+                "43079633e0b079ab"
             ]
         ]
     },
     {
-        "id": "2a13bf4e240ca636",
+        "id": "3119c2825b27d44e",
         "type": "ui_template",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "group": "15ec53870afa5429",
         "name": "",
         "order": 1,
@@ -3058,9 +3084,9 @@
         ]
     },
     {
-        "id": "d7920baeccdb38d8",
+        "id": "8bf964e7a8fbceeb",
         "type": "ui_button",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "name": "",
         "group": "d711bc7f58c65a41",
         "order": 1,
@@ -3081,14 +3107,14 @@
         "y": 620,
         "wires": [
             [
-                "d9b02a0d42df7ed0"
+                "799f394dd33dae46"
             ]
         ]
     },
     {
-        "id": "d50776ce24c68599",
+        "id": "bb6dfc293d1be6ca",
         "type": "ui_text",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "group": "d711bc7f58c65a41",
         "order": 2,
         "width": 0,
@@ -3103,9 +3129,9 @@
         "wires": []
     },
     {
-        "id": "f217253af806a2fd",
+        "id": "9882f089432872d9",
         "type": "ui_text",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "group": "220284a378441ba7",
         "order": 2,
         "width": 0,
@@ -3120,9 +3146,9 @@
         "wires": []
     },
     {
-        "id": "eaf81c641656be6b",
+        "id": "45c70c9c12a6669c",
         "type": "ui_text",
-        "z": "c02260eb2d41958d",
+        "z": "4c2a7f7ea8161540",
         "group": "d64d603cd16b6cdd",
         "order": 2,
         "width": 0,
@@ -3134,6 +3160,24 @@
         "className": "",
         "x": 1100,
         "y": 860,
+        "wires": []
+    },
+    {
+        "id": "33bdbd3883535da1",
+        "type": "mqtt out",
+        "z": "4c2a7f7ea8161540",
+        "name": "",
+        "topic": "/pwo/devices/{{msg.payload.deviceId}}",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "afc0b7c9ed2d83a7",
+        "x": 910,
+        "y": 180,
         "wires": []
     }
 ]

@@ -1,0 +1,949 @@
+[
+    {
+        "id": "3487cbe2e148f9a5",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d1af552f569ffe3e",
+        "type": "inject",
+        "z": "3487cbe2e148f9a5",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "R",
+        "payloadType": "str",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "afbe38c206560368",
+                "bc69da7077455a47",
+                "4890f8a60752854f",
+                "93aabdbf3721c319",
+                "1d9575e9649502a6"
+            ]
+        ]
+    },
+    {
+        "id": "9bfe148107b407b1",
+        "type": "debug",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "afbe38c206560368",
+        "type": "ezo",
+        "z": "3487cbe2e148f9a5",
+        "name": "pH",
+        "address": 3,
+        "customAddr": false,
+        "ezoBoard": "ph",
+        "ezoTopic": "payload",
+        "bus": 1,
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "f2678dac6e194ac6"
+            ]
+        ]
+    },
+    {
+        "id": "1d9575e9649502a6",
+        "type": "exec",
+        "z": "3487cbe2e148f9a5",
+        "command": "python3 iotadd-pwo/software/read-sensor-python/sht21/sht21.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 410,
+        "y": 540,
+        "wires": [
+            [
+                "42bf36f612744343"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "42bf36f612744343",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "flow.set('Ambient', JSON.parse(msg.payload));\nconst payload = JSON.parse(msg.payload);\n\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 480,
+        "wires": [
+            [
+                "5c263ae3ba374904"
+            ]
+        ]
+    },
+    {
+        "id": "f2678dac6e194ac6",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "flow.set('pH', msg.payload);\nconst payload = {\"pH\": msg.payload};\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 160,
+        "wires": [
+            [
+                "5c263ae3ba374904",
+                "f13c1e6d3f0ff1fd"
+            ]
+        ]
+    },
+    {
+        "id": "bc69da7077455a47",
+        "type": "ezo",
+        "z": "3487cbe2e148f9a5",
+        "name": "DO",
+        "address": 3,
+        "customAddr": false,
+        "ezoBoard": "do",
+        "ezoTopic": "payload",
+        "bus": 1,
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "07f757b11c1f07c2"
+            ]
+        ]
+    },
+    {
+        "id": "07f757b11c1f07c2",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "flow.set('DO', msg.payload);\nconst payload = {\"DO\": msg.payload};\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 240,
+        "wires": [
+            [
+                "5c263ae3ba374904"
+            ]
+        ]
+    },
+    {
+        "id": "4890f8a60752854f",
+        "type": "ezo",
+        "z": "3487cbe2e148f9a5",
+        "name": "EC",
+        "address": 3,
+        "customAddr": false,
+        "ezoBoard": "ec",
+        "ezoTopic": "payload",
+        "bus": 1,
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "865518522fd4122a"
+            ]
+        ]
+    },
+    {
+        "id": "865518522fd4122a",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "flow.set('EC', msg.payload);\nconst payload = {\"EC\": msg.payload};\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "5c263ae3ba374904"
+            ]
+        ]
+    },
+    {
+        "id": "93aabdbf3721c319",
+        "type": "ezo",
+        "z": "3487cbe2e148f9a5",
+        "name": "RTD",
+        "address": 3,
+        "customAddr": false,
+        "ezoBoard": "rtd",
+        "ezoTopic": "payload",
+        "bus": 1,
+        "x": 300,
+        "y": 400,
+        "wires": [
+            [
+                "7b09dc6748c31c63"
+            ]
+        ]
+    },
+    {
+        "id": "7b09dc6748c31c63",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "flow.set('RTD', msg.payload);\nconst payload = {\"RTD\": msg.payload};\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 400,
+        "wires": [
+            [
+                "5c263ae3ba374904"
+            ]
+        ]
+    },
+    {
+        "id": "5c263ae3ba374904",
+        "type": "influxdb out",
+        "z": "3487cbe2e148f9a5",
+        "influxdb": "7fd8de0767b7e3f4",
+        "name": "",
+        "measurement": "data_pwo",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "devices",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 980,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "303cc86a83eb8d92",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "payload = {\n    \"pH\": flow.get('pH'),\n    \"DO\": flow.get('DO'),\n    \"EC\": flow.get('EC'),\n    \"RTD\": flow.get('RTD'),\n    \"Temperature\": flow.get('Ambient').Temperature,\n    \"Humidity\": flow.get('Ambient').Humidity,\n    \"deviceId\": msg.payload.trim()\n}\nflow.set('message1', payload);\nflow.set('deviceID', msg.payload.trim());\n\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 160,
+        "wires": [
+            [
+                "9bfe148107b407b1",
+                "9da84cee0973677b",
+                "07c45e41519286d1"
+            ]
+        ]
+    },
+    {
+        "id": "9da84cee0973677b",
+        "type": "ui_switch",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "label": "SendOne",
+        "tooltip": "",
+        "group": "5a5a7c4ba42a4a6a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 840,
+        "y": 640,
+        "wires": [
+            [
+                "b6e7a1906f9e9e3d"
+            ]
+        ]
+    },
+    {
+        "id": "250932e2152f2ec5",
+        "type": "http request",
+        "z": "3487cbe2e148f9a5",
+        "name": "create_author",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.18.31:3030/create_author",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 560,
+        "y": 800,
+        "wires": [
+            [
+                "179996b6e388ed25"
+            ]
+        ]
+    },
+    {
+        "id": "91b4900694666f9b",
+        "type": "inject",
+        "z": "3487cbe2e148f9a5",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "R",
+        "payloadType": "str",
+        "x": 210,
+        "y": 660,
+        "wires": [
+            [
+                "250932e2152f2ec5"
+            ]
+        ]
+    },
+    {
+        "id": "1d1a33e3998f5416",
+        "type": "debug",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "179996b6e388ed25",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "msg = JSON.parse(msg.payload);\nflow.set('address1', msg.address);\nflow.set('author1', msg.author);\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 800,
+        "wires": [
+            [
+                "1d1a33e3998f5416",
+                "6b9457f10b73558b"
+            ]
+        ]
+    },
+    {
+        "id": "3e6fbdaab37a1c6f",
+        "type": "http request",
+        "z": "3487cbe2e148f9a5",
+        "name": "create_subscriber",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.18.31:3030/create_subscriber?address={{Address}}",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 650,
+        "y": 920,
+        "wires": [
+            [
+                "e81d133e26abf396"
+            ]
+        ]
+    },
+    {
+        "id": "62b52a47aed3e5fd",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "\nconst a = flow.get('address1');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 920,
+        "wires": [
+            [
+                "3e6fbdaab37a1c6f"
+            ]
+        ]
+    },
+    {
+        "id": "5474dc9fd8986447",
+        "type": "inject",
+        "z": "3487cbe2e148f9a5",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "R",
+        "payloadType": "str",
+        "x": 170,
+        "y": 900,
+        "wires": [
+            [
+                "62b52a47aed3e5fd"
+            ]
+        ]
+    },
+    {
+        "id": "e81d133e26abf396",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "msg = JSON.parse(msg.payload);\nflow.set('subscription1', msg.subscriber);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 880,
+        "wires": [
+            [
+                "1d1a33e3998f5416",
+                "b578aee833b76778"
+            ]
+        ]
+    },
+    {
+        "id": "d7f48d0b472c8c61",
+        "type": "http request",
+        "z": "3487cbe2e148f9a5",
+        "name": "sendOne",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.18.31:3030/address/sendOne?address={{Address}}&author={{Author}}",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 650,
+        "y": 1020,
+        "wires": [
+            [
+                "ef1f627f1a262801"
+            ]
+        ]
+    },
+    {
+        "id": "b6e7a1906f9e9e3d",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "if(msg.payload){\nconst a = flow.get('address1');\nconst b = flow.get('author1');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\nmsg.Author = encodeURI(JSON.stringify(b));\nmsg.payload = flow.get('message1');\n\nreturn msg;\n} else {\n    return;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 1040,
+        "wires": [
+            [
+                "d7f48d0b472c8c61"
+            ]
+        ]
+    },
+    {
+        "id": "4e87115b0cdee371",
+        "type": "inject",
+        "z": "3487cbe2e148f9a5",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "R",
+        "payloadType": "str",
+        "x": 170,
+        "y": 1020,
+        "wires": [
+            [
+                "b6e7a1906f9e9e3d"
+            ]
+        ]
+    },
+    {
+        "id": "ef1f627f1a262801",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "msg = JSON.parse(msg.payload);\nflow.set('address1', msg.address);\nflow.set('author1', msg.author);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 960,
+        "wires": [
+            [
+                "1d1a33e3998f5416",
+                "9b5a0a9b8801e088"
+            ]
+        ]
+    },
+    {
+        "id": "9786b5c202a28a0c",
+        "type": "inject",
+        "z": "3487cbe2e148f9a5",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "R",
+        "payloadType": "str",
+        "x": 170,
+        "y": 1160,
+        "wires": [
+            [
+                "6446c874fe394b59"
+            ]
+        ]
+    },
+    {
+        "id": "6446c874fe394b59",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "\nconst a = flow.get('subscription1');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Subscriber = encodeURI(JSON.stringify(a));\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 1160,
+        "wires": [
+            [
+                "fba347a0aa05a457"
+            ]
+        ]
+    },
+    {
+        "id": "fba347a0aa05a457",
+        "type": "http request",
+        "z": "3487cbe2e148f9a5",
+        "name": "fetchAll",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.18.31:3030/address/fetchAll?subscriber={{Subscriber}}",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 690,
+        "y": 1160,
+        "wires": [
+            [
+                "eb30e25cf77f9205"
+            ]
+        ]
+    },
+    {
+        "id": "eb30e25cf77f9205",
+        "type": "function",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "func": "msg = JSON.parse(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1100,
+        "wires": [
+            [
+                "ff62c35b956fba97",
+                "1d1a33e3998f5416"
+            ]
+        ]
+    },
+    {
+        "id": "ddafd72cd882c14d",
+        "type": "ui_button",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "group": "f283a15fbccfb5ed",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Create Subscriber",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 210,
+        "y": 820,
+        "wires": [
+            [
+                "62b52a47aed3e5fd"
+            ]
+        ]
+    },
+    {
+        "id": "6258c3ab811be546",
+        "type": "ui_button",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "group": "56abe939f4d7bb70",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Fetch Msgs",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 180,
+        "y": 1120,
+        "wires": [
+            [
+                "6446c874fe394b59"
+            ]
+        ]
+    },
+    {
+        "id": "ff62c35b956fba97",
+        "type": "ui_template",
+        "z": "3487cbe2e148f9a5",
+        "group": "56abe939f4d7bb70",
+        "name": "",
+        "order": 1,
+        "width": "18",
+        "height": "11",
+        "format": "<div  style=\"width: 100%;\">\n    <table cellpadding=\"10\" style=\"width: 100%; border-width: 1px 0;\">\n        <thead>\n            <tr>\n                <th>Ambient hum</th>\n                <th>Ambient temp</th>\n                <th>DO</th>\n                <th>EC</th>\n                <th>RTD</th>\n                <th>pH</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"data in msg.data\">\n                <td style=\"text-align: center;\">{{data.Ambient.Humidity}}</td>\n                <td style=\"text-align: center;\">{{data.Ambient.Temperature}}</td>\n                <td style=\"text-align: center;\">{{data.DO}}</td>\n                <td style=\"text-align: center;\">{{data.EC}}</td>\n                <td style=\"text-align: center;\">{{data.RTD}}</td>\n                <td style=\"text-align: center;\">{{data.pH}}</td>\n            </tr>\n        </tbody>\n    </table>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1020,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c604d612a480e4a9",
+        "type": "ui_button",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "group": "7d02bb21dff02934",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Create Author",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 740,
+        "wires": [
+            [
+                "250932e2152f2ec5"
+            ]
+        ]
+    },
+    {
+        "id": "6b9457f10b73558b",
+        "type": "ui_text",
+        "z": "3487cbe2e148f9a5",
+        "group": "7d02bb21dff02934",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1110,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "b578aee833b76778",
+        "type": "ui_text",
+        "z": "3487cbe2e148f9a5",
+        "group": "f283a15fbccfb5ed",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1080,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "9b5a0a9b8801e088",
+        "type": "ui_text",
+        "z": "3487cbe2e148f9a5",
+        "group": "5a5a7c4ba42a4a6a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1120,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "f13c1e6d3f0ff1fd",
+        "type": "exec",
+        "z": "3487cbe2e148f9a5",
+        "command": "hostname",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 740,
+        "y": 160,
+        "wires": [
+            [
+                "303cc86a83eb8d92"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "07c45e41519286d1",
+        "type": "mqtt out",
+        "z": "3487cbe2e148f9a5",
+        "name": "",
+        "topic": "/pwo/devices/{{msg.payload.deviceId}}",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "afc0b7c9ed2d83a7",
+        "x": 1290,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "7fd8de0767b7e3f4",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.8-flux",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "5a5a7c4ba42a4a6a",
+        "type": "ui_group",
+        "name": "Send One",
+        "tab": "9ecdce596b7dc969",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f283a15fbccfb5ed",
+        "type": "ui_group",
+        "name": "Subscriber",
+        "tab": "9ecdce596b7dc969",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "56abe939f4d7bb70",
+        "type": "ui_group",
+        "name": "Fetch All",
+        "tab": "9ecdce596b7dc969",
+        "order": 4,
+        "disp": true,
+        "width": "18",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7d02bb21dff02934",
+        "type": "ui_group",
+        "name": "Author",
+        "tab": "9ecdce596b7dc969",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "afc0b7c9ed2d83a7",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9ecdce596b7dc969",
+        "type": "ui_tab",
+        "name": "Probe",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
