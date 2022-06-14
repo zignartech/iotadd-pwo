@@ -1,6 +1,6 @@
 [
     {
-        "id": "3487cbe2e148f9a5",
+        "id": "8862c893285585e8",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -400,37 +400,38 @@
         "sessionExpiry": ""
     },
     {
-        "id": "d1af552f569ffe3e",
+        "id": "ece675d2087abbfe",
         "type": "inject",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "Trigger",
         "props": [
             {
                 "p": "payload"
             }
         ],
-        "repeat": "",
+        "repeat": "30",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "R",
         "payloadType": "str",
-        "x": 110,
+        "x": 120,
         "y": 140,
         "wires": [
             [
-                "afbe38c206560368",
-                "bc69da7077455a47",
-                "4890f8a60752854f",
-                "93aabdbf3721c319"
+                "885fb2e4d8058c8f",
+                "516fedf0bbca9d14",
+                "c6173e214a0dfe7b",
+                "02bbe7f99ce6903f",
+                "151e8968c3f59798"
             ]
         ]
     },
     {
-        "id": "9bfe148107b407b1",
+        "id": "ab328d03dc26d834",
         "type": "debug",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -445,9 +446,9 @@
         "wires": []
     },
     {
-        "id": "afbe38c206560368",
+        "id": "885fb2e4d8058c8f",
         "type": "ezo",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "pH",
         "address": 3,
         "customAddr": false,
@@ -458,14 +459,55 @@
         "y": 160,
         "wires": [
             [
-                "f2678dac6e194ac6"
+                "046e86ce7f315742"
             ]
         ]
     },
     {
-        "id": "f2678dac6e194ac6",
+        "id": "151e8968c3f59798",
+        "type": "exec",
+        "z": "8862c893285585e8",
+        "command": "python3 iotadd-pwo/software/read-sensor-python/sht21/sht21.py",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 410,
+        "y": 540,
+        "wires": [
+            [
+                "f55a0f4a55d26c63"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f55a0f4a55d26c63",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
+        "name": "",
+        "func": "flow.set('Ambient', JSON.parse(msg.payload));\nconst payload = JSON.parse(msg.payload);\n\nreturn {\n    payload\n};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 480,
+        "wires": [
+            [
+                "ac43881bccb8ed46"
+            ]
+        ]
+    },
+    {
+        "id": "046e86ce7f315742",
+        "type": "function",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "flow.set('pH', msg.payload);\nconst payload = {\"pH\": msg.payload};\nreturn {\n    payload\n};",
         "outputs": 1,
@@ -477,15 +519,15 @@
         "y": 160,
         "wires": [
             [
-                "5c263ae3ba374904",
-                "f13c1e6d3f0ff1fd"
+                "ac43881bccb8ed46",
+                "d32f60fb3933631d"
             ]
         ]
     },
     {
-        "id": "bc69da7077455a47",
+        "id": "516fedf0bbca9d14",
         "type": "ezo",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "DO",
         "address": 3,
         "customAddr": false,
@@ -496,14 +538,14 @@
         "y": 240,
         "wires": [
             [
-                "07f757b11c1f07c2"
+                "a272cc553133110b"
             ]
         ]
     },
     {
-        "id": "07f757b11c1f07c2",
+        "id": "a272cc553133110b",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "flow.set('DO', msg.payload);\nconst payload = {\"DO\": msg.payload};\nreturn {\n    payload\n};",
         "outputs": 1,
@@ -515,14 +557,14 @@
         "y": 240,
         "wires": [
             [
-                "5c263ae3ba374904"
+                "ac43881bccb8ed46"
             ]
         ]
     },
     {
-        "id": "4890f8a60752854f",
+        "id": "c6173e214a0dfe7b",
         "type": "ezo",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "EC",
         "address": 3,
         "customAddr": false,
@@ -533,14 +575,14 @@
         "y": 320,
         "wires": [
             [
-                "865518522fd4122a"
+                "219fe831e135bb84"
             ]
         ]
     },
     {
-        "id": "865518522fd4122a",
+        "id": "219fe831e135bb84",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "flow.set('EC', msg.payload);\nconst payload = {\"EC\": msg.payload};\nreturn {\n    payload\n};",
         "outputs": 1,
@@ -552,14 +594,14 @@
         "y": 320,
         "wires": [
             [
-                "5c263ae3ba374904"
+                "ac43881bccb8ed46"
             ]
         ]
     },
     {
-        "id": "93aabdbf3721c319",
+        "id": "02bbe7f99ce6903f",
         "type": "ezo",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "RTD",
         "address": 3,
         "customAddr": false,
@@ -570,14 +612,14 @@
         "y": 400,
         "wires": [
             [
-                "7b09dc6748c31c63"
+                "352d2ff9c938210a"
             ]
         ]
     },
     {
-        "id": "7b09dc6748c31c63",
+        "id": "352d2ff9c938210a",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "flow.set('RTD', msg.payload);\nconst payload = {\"RTD\": msg.payload};\nreturn {\n    payload\n};",
         "outputs": 1,
@@ -589,14 +631,14 @@
         "y": 400,
         "wires": [
             [
-                "5c263ae3ba374904"
+                "ac43881bccb8ed46"
             ]
         ]
     },
     {
-        "id": "5c263ae3ba374904",
+        "id": "ac43881bccb8ed46",
         "type": "influxdb out",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "influxdb": "7fd8de0767b7e3f4",
         "name": "",
         "measurement": "data_pwo",
@@ -612,11 +654,11 @@
         "wires": []
     },
     {
-        "id": "303cc86a83eb8d92",
+        "id": "9b8e8512d0ee38f7",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
-        "func": "payload = {\n    \"pH\": flow.get('pH'),\n    \"DO\": flow.get('DO'),\n    \"EC\": flow.get('EC'),\n    \"RTD\": flow.get('RTD'),\n    \"deviceId\": msg.payload.trim()\n}\nflow.set('message1', payload);\nflow.set('deviceID', msg.payload.trim());\n\nreturn {\n    payload\n};",
+        "func": "payload = {\n    \"pH\": flow.get('pH'),\n    \"DO\": flow.get('DO'),\n    \"EC\": flow.get('EC'),\n    \"RTD\": flow.get('RTD'),\n    \"Temperature\": flow.get('Ambient').Temperature,\n    \"Humidity\": flow.get('Ambient').Humidity,\n    \"deviceId\": msg.payload.trim()\n}\nflow.set('message1', payload);\nflow.set('deviceID', msg.payload.trim());\n\nreturn {\n    payload\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -626,16 +668,16 @@
         "y": 160,
         "wires": [
             [
-                "9bfe148107b407b1",
-                "9da84cee0973677b",
-                "07c45e41519286d1"
+                "ab328d03dc26d834",
+                "2038069257b4c361",
+                "a0a6bea97f204ea5"
             ]
         ]
     },
     {
-        "id": "9da84cee0973677b",
+        "id": "2038069257b4c361",
         "type": "ui_switch",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "label": "SendOne",
         "tooltip": "",
@@ -662,14 +704,14 @@
         "y": 640,
         "wires": [
             [
-                "b6e7a1906f9e9e3d"
+                "702142e122a0bce1"
             ]
         ]
     },
     {
-        "id": "250932e2152f2ec5",
+        "id": "fa957d23ab3f3b58",
         "type": "http request",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "create_author",
         "method": "GET",
         "ret": "txt",
@@ -684,14 +726,14 @@
         "y": 800,
         "wires": [
             [
-                "179996b6e388ed25"
+                "d2cfd143909bdbbb"
             ]
         ]
     },
     {
-        "id": "91b4900694666f9b",
+        "id": "3ffbce3f9a89c9a4",
         "type": "inject",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "Trigger",
         "props": [
             {
@@ -709,14 +751,14 @@
         "y": 660,
         "wires": [
             [
-                "250932e2152f2ec5"
+                "fa957d23ab3f3b58"
             ]
         ]
     },
     {
-        "id": "1d1a33e3998f5416",
+        "id": "29d22c549af1191e",
         "type": "debug",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -731,9 +773,9 @@
         "wires": []
     },
     {
-        "id": "179996b6e388ed25",
+        "id": "d2cfd143909bdbbb",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('address1', msg.address);\nflow.set('author1', msg.author);\nreturn msg;\n",
         "outputs": 1,
@@ -745,15 +787,15 @@
         "y": 800,
         "wires": [
             [
-                "1d1a33e3998f5416",
-                "6b9457f10b73558b"
+                "29d22c549af1191e",
+                "e67e5fef11974d56"
             ]
         ]
     },
     {
-        "id": "3e6fbdaab37a1c6f",
+        "id": "67d7c2d181a916d0",
         "type": "http request",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "create_subscriber",
         "method": "POST",
         "ret": "txt",
@@ -768,14 +810,14 @@
         "y": 920,
         "wires": [
             [
-                "e81d133e26abf396"
+                "7a7e1999bc4ecde8"
             ]
         ]
     },
     {
-        "id": "62b52a47aed3e5fd",
+        "id": "4cc7e56fea44fbe2",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "\nconst a = flow.get('address1');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\n\nreturn msg;",
         "outputs": 1,
@@ -787,14 +829,14 @@
         "y": 920,
         "wires": [
             [
-                "3e6fbdaab37a1c6f"
+                "67d7c2d181a916d0"
             ]
         ]
     },
     {
-        "id": "5474dc9fd8986447",
+        "id": "b4ec15d3251fc35e",
         "type": "inject",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "Trigger",
         "props": [
             {
@@ -812,14 +854,14 @@
         "y": 900,
         "wires": [
             [
-                "62b52a47aed3e5fd"
+                "4cc7e56fea44fbe2"
             ]
         ]
     },
     {
-        "id": "e81d133e26abf396",
+        "id": "7a7e1999bc4ecde8",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('subscription1', msg.subscriber);\nreturn msg;",
         "outputs": 1,
@@ -831,15 +873,15 @@
         "y": 880,
         "wires": [
             [
-                "1d1a33e3998f5416",
-                "b578aee833b76778"
+                "29d22c549af1191e",
+                "afafbff3f3439a8f"
             ]
         ]
     },
     {
-        "id": "d7f48d0b472c8c61",
+        "id": "7fd8351b2c6362fa",
         "type": "http request",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "sendOne",
         "method": "POST",
         "ret": "txt",
@@ -854,14 +896,14 @@
         "y": 1020,
         "wires": [
             [
-                "ef1f627f1a262801"
+                "814274b3ba36c90a"
             ]
         ]
     },
     {
-        "id": "b6e7a1906f9e9e3d",
+        "id": "702142e122a0bce1",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "if(msg.payload){\nconst a = flow.get('address1');\nconst b = flow.get('author1');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Address = encodeURI(JSON.stringify(a));\nmsg.Author = encodeURI(JSON.stringify(b));\nmsg.payload = flow.get('message1');\n\nreturn msg;\n} else {\n    return;\n}",
         "outputs": 1,
@@ -873,14 +915,14 @@
         "y": 1040,
         "wires": [
             [
-                "d7f48d0b472c8c61"
+                "7fd8351b2c6362fa"
             ]
         ]
     },
     {
-        "id": "4e87115b0cdee371",
+        "id": "8400eb19f47f2c0d",
         "type": "inject",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "Trigger",
         "props": [
             {
@@ -898,14 +940,14 @@
         "y": 1020,
         "wires": [
             [
-                "b6e7a1906f9e9e3d"
+                "702142e122a0bce1"
             ]
         ]
     },
     {
-        "id": "ef1f627f1a262801",
+        "id": "814274b3ba36c90a",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nflow.set('address1', msg.address);\nflow.set('author1', msg.author);\nreturn msg;",
         "outputs": 1,
@@ -917,15 +959,15 @@
         "y": 960,
         "wires": [
             [
-                "1d1a33e3998f5416",
-                "9b5a0a9b8801e088"
+                "29d22c549af1191e",
+                "04cdc26d8d4fbb52"
             ]
         ]
     },
     {
-        "id": "9786b5c202a28a0c",
+        "id": "4c2a57d9b9f63cca",
         "type": "inject",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "Trigger",
         "props": [
             {
@@ -943,14 +985,14 @@
         "y": 1160,
         "wires": [
             [
-                "6446c874fe394b59"
+                "07dc33973e4ceda8"
             ]
         ]
     },
     {
-        "id": "6446c874fe394b59",
+        "id": "07dc33973e4ceda8",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "\nconst a = flow.get('subscription1');\n\nconst genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join(''); \n\nmsg.Subscriber = encodeURI(JSON.stringify(a));\n\nreturn msg;",
         "outputs": 1,
@@ -962,14 +1004,14 @@
         "y": 1160,
         "wires": [
             [
-                "fba347a0aa05a457"
+                "8d2818f482fe9c66"
             ]
         ]
     },
     {
-        "id": "fba347a0aa05a457",
+        "id": "8d2818f482fe9c66",
         "type": "http request",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "fetchAll",
         "method": "POST",
         "ret": "txt",
@@ -984,14 +1026,14 @@
         "y": 1160,
         "wires": [
             [
-                "eb30e25cf77f9205"
+                "eb565b7f32316242"
             ]
         ]
     },
     {
-        "id": "eb30e25cf77f9205",
+        "id": "eb565b7f32316242",
         "type": "function",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "func": "msg = JSON.parse(msg.payload);\nreturn msg;",
         "outputs": 1,
@@ -1003,15 +1045,15 @@
         "y": 1100,
         "wires": [
             [
-                "ff62c35b956fba97",
-                "1d1a33e3998f5416"
+                "9d96f1f0cf5d559f",
+                "29d22c549af1191e"
             ]
         ]
     },
     {
-        "id": "ddafd72cd882c14d",
+        "id": "112aed09a67b6247",
         "type": "ui_button",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "group": "f283a15fbccfb5ed",
         "order": 1,
@@ -1032,14 +1074,14 @@
         "y": 820,
         "wires": [
             [
-                "62b52a47aed3e5fd"
+                "4cc7e56fea44fbe2"
             ]
         ]
     },
     {
-        "id": "6258c3ab811be546",
+        "id": "0434726f72e6ba08",
         "type": "ui_button",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "group": "56abe939f4d7bb70",
         "order": 1,
@@ -1060,20 +1102,20 @@
         "y": 1120,
         "wires": [
             [
-                "6446c874fe394b59"
+                "07dc33973e4ceda8"
             ]
         ]
     },
     {
-        "id": "ff62c35b956fba97",
+        "id": "9d96f1f0cf5d559f",
         "type": "ui_template",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "group": "56abe939f4d7bb70",
         "name": "",
         "order": 1,
         "width": "18",
         "height": "11",
-        "format": "<div  style=\"width: 100%;\">\n    <table cellpadding=\"10\" style=\"width: 100%; border-width: 1px 0;\">\n        <thead>\n            <tr>\n                <th>DO</th>\n                <th>EC</th>\n                <th>RTD</th>\n                <th>pH</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"data in msg.data\">\n                <td style=\"text-align: center;\">{{data.DO}}</td>\n                <td style=\"text-align: center;\">{{data.EC}}</td>\n                <td style=\"text-align: center;\">{{data.RTD}}</td>\n                <td style=\"text-align: center;\">{{data.pH}}</td>\n            </tr>\n        </tbody>\n    </table>\n</div>",
+        "format": "<div  style=\"width: 100%;\">\n    <table cellpadding=\"10\" style=\"width: 100%; border-width: 1px 0;\">\n        <thead>\n            <tr>\n                <th>Ambient hum</th>\n                <th>Ambient temp</th>\n                <th>DO</th>\n                <th>EC</th>\n                <th>RTD</th>\n                <th>pH</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"data in msg.data\">\n                <td style=\"text-align: center;\">{{data.Ambient.Humidity}}</td>\n                <td style=\"text-align: center;\">{{data.Ambient.Temperature}}</td>\n                <td style=\"text-align: center;\">{{data.DO}}</td>\n                <td style=\"text-align: center;\">{{data.EC}}</td>\n                <td style=\"text-align: center;\">{{data.RTD}}</td>\n                <td style=\"text-align: center;\">{{data.pH}}</td>\n            </tr>\n        </tbody>\n    </table>\n</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -1086,9 +1128,9 @@
         ]
     },
     {
-        "id": "c604d612a480e4a9",
+        "id": "8032c20eaecb2ed8",
         "type": "ui_button",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "group": "7d02bb21dff02934",
         "order": 1,
@@ -1109,14 +1151,14 @@
         "y": 740,
         "wires": [
             [
-                "250932e2152f2ec5"
+                "fa957d23ab3f3b58"
             ]
         ]
     },
     {
-        "id": "6b9457f10b73558b",
+        "id": "e67e5fef11974d56",
         "type": "ui_text",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "group": "7d02bb21dff02934",
         "order": 1,
         "width": 0,
@@ -1131,9 +1173,9 @@
         "wires": []
     },
     {
-        "id": "b578aee833b76778",
+        "id": "afafbff3f3439a8f",
         "type": "ui_text",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "group": "f283a15fbccfb5ed",
         "order": 2,
         "width": 0,
@@ -1148,9 +1190,9 @@
         "wires": []
     },
     {
-        "id": "9b5a0a9b8801e088",
+        "id": "04cdc26d8d4fbb52",
         "type": "ui_text",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "group": "5a5a7c4ba42a4a6a",
         "order": 2,
         "width": 0,
@@ -1165,9 +1207,9 @@
         "wires": []
     },
     {
-        "id": "f13c1e6d3f0ff1fd",
+        "id": "d32f60fb3933631d",
         "type": "exec",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "command": "hostname",
         "addpay": "",
         "append": "",
@@ -1180,16 +1222,16 @@
         "y": 160,
         "wires": [
             [
-                "303cc86a83eb8d92"
+                "9b8e8512d0ee38f7"
             ],
             [],
             []
         ]
     },
     {
-        "id": "07c45e41519286d1",
+        "id": "a0a6bea97f204ea5",
         "type": "mqtt out",
-        "z": "3487cbe2e148f9a5",
+        "z": "8862c893285585e8",
         "name": "",
         "topic": "/pwo/devices/{{msg.payload.deviceId}}",
         "qos": "0",
