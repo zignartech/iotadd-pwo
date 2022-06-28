@@ -377,7 +377,7 @@
         "id": "afc0b7c9ed2d83a7",
         "type": "mqtt-broker",
         "name": "",
-        "broker": "localhost",
+        "broker": "192.168.175.12",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
